@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
-using System.Diagnostics.Eventing.Reader;
 
 
 namespace BLL

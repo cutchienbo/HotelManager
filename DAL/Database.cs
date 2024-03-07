@@ -13,7 +13,7 @@ namespace DAL
     {
         protected SqlConnection _conn = new SqlConnection("Data Source=DESKTOP-HL6447C\\SQLEXPRESS;Database = HotelManager;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
 
-        protected SqlDataReader queryExecuteReader(string proc, string[] param, string[] value)
+        protected SqlDataReader queryExecuteReader(string proc, string[] param = null, string[] value = null)
         {
             _conn.Close();
             _conn.Open();
@@ -21,9 +21,12 @@ namespace DAL
             SqlCommand command = new SqlCommand(proc, _conn);
             command.CommandType = CommandType.StoredProcedure;
 
-            for(int i = 0; i < param.Count(); i++)
+            if(param != null)
             {
-                command.Parameters.AddWithValue("@" + param[i], value[i]);
+                for (int i = 0; i < param.Count(); i++)
+                {
+                    command.Parameters.AddWithValue("@" + param[i], value[i]);
+                }
             }
 
             command.Connection = _conn;

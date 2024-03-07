@@ -30,11 +30,12 @@
         {
             this.panelMain = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radMaxsize = new System.Windows.Forms.RadioButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.radMinisize = new System.Windows.Forms.RadioButton();
+            this.radClose = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
-            this.radClose = new System.Windows.Forms.RadioButton();
-            this.radMaxsize = new System.Windows.Forms.RadioButton();
-            this.radMinisize = new System.Windows.Forms.RadioButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,12 +61,69 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.panel1.Controls.Add(this.radMaxsize);
+            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.radMinisize);
             this.panel1.Controls.Add(this.radClose);
             this.panel1.Location = new System.Drawing.Point(224, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1232, 99);
+            this.panel1.Size = new System.Drawing.Size(1232, 114);
             this.panel1.TabIndex = 4;
+            // 
+            // radMaxsize
+            // 
+            this.radMaxsize.AutoSize = true;
+            this.radMaxsize.Enabled = false;
+            this.radMaxsize.Location = new System.Drawing.Point(1170, 10);
+            this.radMaxsize.Name = "radMaxsize";
+            this.radMaxsize.Size = new System.Drawing.Size(17, 16);
+            this.radMaxsize.TabIndex = 7;
+            this.radMaxsize.TabStop = true;
+            this.radMaxsize.UseVisualStyleBackColor = true;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.AutoEllipsis = true;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(1049, 44);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(172, 46);
+            this.iconButton1.TabIndex = 0;
+            this.iconButton1.Text = "Sign out";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // radMinisize
+            // 
+            this.radMinisize.AutoSize = true;
+            this.radMinisize.Location = new System.Drawing.Point(1135, 10);
+            this.radMinisize.Name = "radMinisize";
+            this.radMinisize.Size = new System.Drawing.Size(17, 16);
+            this.radMinisize.TabIndex = 8;
+            this.radMinisize.TabStop = true;
+            this.radMinisize.UseVisualStyleBackColor = true;
+            this.radMinisize.CheckedChanged += new System.EventHandler(this.radMinisize_CheckedChanged);
+            // 
+            // radClose
+            // 
+            this.radClose.AutoSize = true;
+            this.radClose.Location = new System.Drawing.Point(1204, 10);
+            this.radClose.Name = "radClose";
+            this.radClose.Size = new System.Drawing.Size(17, 16);
+            this.radClose.TabIndex = 6;
+            this.radClose.TabStop = true;
+            this.radClose.UseVisualStyleBackColor = true;
+            this.radClose.CheckedChanged += new System.EventHandler(this.radClose_CheckedChanged);
             // 
             // panel2
             // 
@@ -89,46 +147,13 @@
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
-            // radClose
-            // 
-            this.radClose.AutoSize = true;
-            this.radClose.Location = new System.Drawing.Point(1204, 10);
-            this.radClose.Name = "radClose";
-            this.radClose.Size = new System.Drawing.Size(17, 16);
-            this.radClose.TabIndex = 6;
-            this.radClose.TabStop = true;
-            this.radClose.UseVisualStyleBackColor = true;
-            this.radClose.CheckedChanged += new System.EventHandler(this.radClose_CheckedChanged);
-            // 
-            // radMaxsize
-            // 
-            this.radMaxsize.AutoSize = true;
-            this.radMaxsize.Enabled = false;
-            this.radMaxsize.Location = new System.Drawing.Point(1181, 10);
-            this.radMaxsize.Name = "radMaxsize";
-            this.radMaxsize.Size = new System.Drawing.Size(17, 16);
-            this.radMaxsize.TabIndex = 7;
-            this.radMaxsize.TabStop = true;
-            this.radMaxsize.UseVisualStyleBackColor = true;
-            // 
-            // radMinisize
-            // 
-            this.radMinisize.AutoSize = true;
-            this.radMinisize.Location = new System.Drawing.Point(1158, 10);
-            this.radMinisize.Name = "radMinisize";
-            this.radMinisize.Size = new System.Drawing.Size(17, 16);
-            this.radMinisize.TabIndex = 8;
-            this.radMinisize.TabStop = true;
-            this.radMinisize.UseVisualStyleBackColor = true;
-            this.radMinisize.CheckedChanged += new System.EventHandler(this.radMinisize_CheckedChanged);
-            // 
             // panelChildForm
             // 
             this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelChildForm.Location = new System.Drawing.Point(228, 100);
+            this.panelChildForm.Location = new System.Drawing.Point(224, 107);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1228, 723);
+            this.panelChildForm.Size = new System.Drawing.Size(1232, 716);
             this.panelChildForm.TabIndex = 6;
             // 
             // Manager
@@ -162,5 +187,6 @@
         private System.Windows.Forms.RadioButton radMinisize;
         private System.Windows.Forms.RadioButton radClose;
         private System.Windows.Forms.Panel panelChildForm;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

@@ -147,6 +147,7 @@ namespace GUI
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
             childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Size = new Size(1232, 716);
 
             panelChildForm.Controls.Add(childForm);
 
@@ -259,6 +260,15 @@ namespace GUI
         {
             this.WindowState = FormWindowState.Minimized;
             radMinisize.Checked = false;
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Form signInForm = new SignIn();
+
+            signInForm.Show();
+
+            this.Close();
         }
     }
 }

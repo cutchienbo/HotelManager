@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using FontAwesome.Sharp;
 
 namespace GUI
 {
@@ -22,8 +23,29 @@ namespace GUI
             InitializeComponent();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            bool baseResult = base.ProcessCmdKey(ref msg, keyData);
+
+            if (keyData == Keys.Tab && txtIdCode.Focused)
+            {
+                txtPassword.PasswordChar = '*';
+                txtPassword.Text = "";
+                txtPassword.Focus();
+
+                return true;
+            }
+
+
+            return baseResult;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            lblIdCodeError.Text = "";
+            lblPasswordError.Text = "";
+
             if (txtIdCode.Text == "Nhập số căn cước công dân...")
             {
                 user.sIdCode = "";
@@ -48,15 +70,22 @@ namespace GUI
             switch (getUser)
             {
                 case "required_id_code":
-                    MessageBox.Show("Bạn chưa nhập số căn cước công dân");
+                    lblIdCodeError.Text = "You need to enter the id code !";
+
                     return;
+
                 case "required_password":
-                    MessageBox.Show("Bạn chưa nhập mật khẩu");
+                    lblPasswordError.Text = "You need to enter the password !";
+
                     return;
+
                 case "id code or password wrong":
-                    txtIdCode.Text = "";
-                    txtPassword.Text = "";
-                    MessageBox.Show("Số căn cước công dân hoặc mật khẩu của bạn sai");
+                    txtIdCode.Text = "Nhập số căn cước công dân...";
+                    txtPassword.Text = "Nhập mật khẩu...";
+                    txtPassword.PasswordChar = '\0';
+
+                    lblIdCodeError.Text = "Id code or password is wrong !";
+
                     return;
             }
 
@@ -74,7 +103,6 @@ namespace GUI
         private void SignIn_Load(object sender, EventArgs e)
         {
             txtIdCode.Text = "Nhập số căn cước công dân...";
-            txtPassword.PasswordChar = '\0';
             txtPassword.Text = "Nhập mật khẩu...";
         }
 
@@ -82,7 +110,6 @@ namespace GUI
         {
             if (txtPassword.Text == "")
             {
-          
                 txtPassword.PasswordChar = '\0';
                 txtPassword.Text = "Nhập mật khẩu...";
             }
@@ -92,7 +119,6 @@ namespace GUI
         {
             if (txtPassword.Text == "Nhập mật khẩu...")
             {
-    
                 txtPassword.PasswordChar = '*';
                 txtPassword.Text = "";
             }
@@ -102,7 +128,6 @@ namespace GUI
         {
             if (txtIdCode.Text == "")
             {
-
                 txtIdCode.Text = "Nhập số căn cước công dân...";
             }
         }
@@ -131,7 +156,29 @@ namespace GUI
         private void radMinisize_CheckedChanged(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+
             radMinisize.Checked = false;
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            IconButton btn = (IconButton)sender;
+
+            if(txtPassword.Text != "Nhập mật khẩu...")
+            {
+                if (txtPassword.PasswordChar != '*')
+                {
+                    txtPassword.PasswordChar = '*';
+
+                    btn.IconChar = IconChar.EyeSlash;
+                }
+                else
+                {
+                    txtPassword.PasswordChar = '\0';
+
+                    btn.IconChar = IconChar.Eye;
+                }
+            }
         }
     }
 }
