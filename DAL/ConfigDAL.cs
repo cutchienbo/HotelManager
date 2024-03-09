@@ -34,5 +34,24 @@ namespace DAL
                 return null;
             }
         }
+
+        public bool editConfigInfo(Config config)
+        {
+            string[] param = { "checkin_time", "checkout_time" };
+            string[] value = {config.sCheckinTime, config.sCheckoutTime};
+
+            try
+            {
+                SqlDataReader res = queryExecuteReader("edit_config_proc", param, value);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+            
+        }
     }
 }

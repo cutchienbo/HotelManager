@@ -143,6 +143,9 @@
     <EmbeddedResource Include="ChildForms\FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FormPermission.resx">
+      <DependentUpon>FormPermission.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>
     </EmbeddedResource>

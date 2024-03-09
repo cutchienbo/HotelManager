@@ -16,5 +16,10 @@ namespace BLL
         {
             return configDAL.getConfigInfo(); 
         }
+
+        public bool editConfigInfo(Config config)
+        {
+            return configDAL.editConfigInfo(config);
+        }
     }
 }

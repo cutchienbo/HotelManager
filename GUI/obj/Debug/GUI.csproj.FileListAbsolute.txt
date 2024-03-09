@@ -26,3 +26,4 @@ C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.FormRoom.r
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.FormService.resources
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.FormStatistical.resources
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.FormUser.resources
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.FormPermission.resources
