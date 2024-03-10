@@ -98,7 +98,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 571);
+            this.splitter1.Size = new System.Drawing.Size(3, 716);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
@@ -112,10 +112,11 @@
             this.grpConfigInfo.ForeColor = System.Drawing.Color.White;
             this.grpConfigInfo.Location = new System.Drawing.Point(23, 20);
             this.grpConfigInfo.Name = "grpConfigInfo";
-            this.grpConfigInfo.Size = new System.Drawing.Size(428, 199);
+            this.grpConfigInfo.Size = new System.Drawing.Size(362, 199);
             this.grpConfigInfo.TabIndex = 7;
             this.grpConfigInfo.TabStop = false;
             this.grpConfigInfo.Text = "Info";
+            this.grpConfigInfo.Enter += new System.EventHandler(this.grpConfigInfo_Enter);
             // 
             // groupBox1
             // 
@@ -130,9 +131,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(472, 20);
+            this.groupBox1.Location = new System.Drawing.Point(400, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 199);
+            this.groupBox1.Size = new System.Drawing.Size(509, 199);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Config";
@@ -141,14 +142,14 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.btnSave.IconColor = System.Drawing.Color.White;
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 30;
-            this.btnSave.Location = new System.Drawing.Point(368, 135);
+            this.btnSave.Location = new System.Drawing.Point(378, 136);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 46);
             this.btnSave.TabIndex = 8;
@@ -266,10 +267,10 @@
             // 
             // FormConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1003, 571);
+            this.ClientSize = new System.Drawing.Size(921, 716);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpConfigInfo);
             this.Controls.Add(this.splitter1);

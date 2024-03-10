@@ -87,5 +87,10 @@ namespace GUI.ChildForms
 
             return config;
         }
+
+        private void grpConfigInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

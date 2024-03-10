@@ -144,10 +144,9 @@ namespace GUI
         {
             this.currentChildForm = childForm;
 
-            childForm.TopLevel = false; 
-            childForm.Size = new Size(panelChildForm.Width / 5 * 4, panelChildForm.Height / 5 * 4);
-            childForm.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
+            childForm.Size = new Size(921, 716);
             childForm.FormBorderStyle = FormBorderStyle.None;
 
             panelChildForm.Controls.Add(childForm);
