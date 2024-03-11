@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using GUI.ChildForms;
+using DTO;
 
 namespace GUI
 {
@@ -19,7 +20,8 @@ namespace GUI
         private IconButton activeBtn;
         private Panel leftBtnBorder;
         private Form currentChildForm;
-        public Manager(string full_name, string permission)
+
+        public Manager(User user)
         {
             InitializeComponent();
             this.leftBtnBorder = new Panel();
@@ -28,15 +30,12 @@ namespace GUI
             this.leftBtnBorder.TabIndex = 2;
             this.leftBtnBorder.BringToFront();
 
-            lblName.Text = full_name;
+            lblName.Text = user.sFullName;
 
-            permission = permission.Trim(',');
-            string[] perStr = permission.Split(',');
-
-            foreach (string str in perStr)
+            foreach (Permission per in user.sPermission)
             {
-                string first = str.Substring(0, 1);
-                string second = str.Substring(1);
+                string first = per.sCode.Substring(0, 1);
+                string second = per.sCode.Substring(1);
 
                 drawButton(first.ToUpper() + second);
             }
@@ -128,13 +127,14 @@ namespace GUI
             {
                 disableBtnHandle(this.activeBtn);
             }
+
             activeBtnHandle(btn);
 
             MethodInfo addChildForm = this.GetType().GetMethod(btn.Name);
 
             if(this.currentChildForm != null)
             {
-                currentChildForm.Close();
+                this.currentChildForm.Close();
             }
 
             addChildForm.Invoke(this, null);

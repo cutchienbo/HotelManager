@@ -13,23 +13,19 @@ namespace BLL
     {
         UserDAL userDAL = new UserDAL();
 
-        public string checkLogin(User user)
+        public User checkLogin(User user)
         {
-            if(user.sIdCode == "")
-            {
-                return "required_id_code";
-            }
+            return this.userDAL.checkLogin(user);
+        }
 
-            if(user.sPassword == "")
-            {
-                return "required_password";
-            }
-            
-            string info = userDAL.checkLogin(user);
+        public List<User> getUsers()
+        {
+            return this.userDAL.getUsers();
+        }
 
-           
-
-            return info;
+        public List<Role> getRoles()
+        {
+            return this.userDAL.getRoles();
         }
     }
 }

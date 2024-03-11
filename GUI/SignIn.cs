@@ -48,55 +48,42 @@ namespace GUI
 
             if (txtIdCode.Text == "Nhập số căn cước công dân...")
             {
-                user.sIdCode = "";
+                lblIdCodeError.Text = "You need to enter the id code !";
+                return;
             }
             else
             {
-                user.sIdCode = txtIdCode.Text;
+                this.user.sIdCode = txtIdCode.Text;
             }
 
             if (txtPassword.Text == "Nhập mật khẩu...")
             {
-                user.sPassword = "";
+                lblPasswordError.Text = "You need to enter the password !";
+                return;
             }
             else
             {
-                user.sPassword = txtPassword.Text;
+                this.user.sPassword = txtPassword.Text;
             }
             
 
-            string getUser = userBLL.checkLogin(user);
+            this.user = userBLL.checkLogin(user);
 
-            switch (getUser)
+            if(this.user == null)
             {
-                case "required_id_code":
-                    lblIdCodeError.Text = "You need to enter the id code !";
+                txtIdCode.Text = "Nhập số căn cước công dân...";
+                txtPassword.Text = "Nhập mật khẩu...";
+                txtPassword.PasswordChar = '\0';
 
-                    return;
+                lblIdCodeError.Text = "Id code or password is wrong !";
 
-                case "required_password":
-                    lblPasswordError.Text = "You need to enter the password !";
-
-                    return;
-
-                case "id code or password wrong":
-                    txtIdCode.Text = "Nhập số căn cước công dân...";
-                    txtPassword.Text = "Nhập mật khẩu...";
-                    txtPassword.PasswordChar = '\0';
-
-                    lblIdCodeError.Text = "Id code or password is wrong !";
-
-                    return;
+                return;
             }
-
-            string[] listStr = getUser.Split('-');
-
-            string fullName = listStr[0];
-            string permisssion = listStr[1];
 
             this.Hide();
 
-            Manager main = new Manager(fullName, permisssion);
+            Manager main = new Manager(this.user);
+
             main.Show();
         }
 

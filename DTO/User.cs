@@ -10,12 +10,15 @@ namespace DTO
     {
         private int id;
         private int role_id;
+        private string role_name;
         private string full_name;
         private string id_code;
         private string phone_number;
         private string email;
         private string address;
         private string password;
+        private int statetus;
+        private List<Permission> permissions;
 
         public int sId {
             get
@@ -36,6 +39,17 @@ namespace DTO
             set
             {
                 this.role_id = value;
+            }
+        }
+        public string sRoleName
+        {
+            get
+            {
+                return this.role_name;
+            }
+            set
+            {
+                this.role_name = value;
             }
         }
         public string sFullName
@@ -104,28 +118,57 @@ namespace DTO
                 this.password = value;
             }
         }
+        public int sStatetus
+        {
+            get
+            {
+                return this.statetus;
+            }
+            set
+            {
+                this.statetus = value;
+            }
+        }
+
+        public List<Permission> sPermission
+        {
+            get
+            {
+                return this.permissions;
+            }
+            set
+            {
+                this.permissions = value;
+            }
+        }
 
         public User() { }
 
         public User(
             int id,
             int role_id,
+            string role_name,
             string full_name,
             string id_code,
             string phone_number,
             string email,
             string address,
-            string password
+            string password,
+            int statetus,
+            List<Permission> per
         )
         {
             this.id = id;
             this.role_id = role_id;
+            this.role_name = role_name;
             this.full_name = full_name;
             this.id_code = id_code;
             this.phone_number = phone_number;
             this.email = email;
             this.address = address;
             this.password = password;
+            this.statetus = statetus;
+            this.permissions = per;
         }
     }
 }
