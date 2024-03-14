@@ -45,7 +45,7 @@
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.lblPhoneNumberErro = new System.Windows.Forms.Label();
+            this.lblPhoneNumberError = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmailError = new System.Windows.Forms.Label();
@@ -216,15 +216,15 @@
             this.txtPhoneNumber.Size = new System.Drawing.Size(214, 27);
             this.txtPhoneNumber.TabIndex = 7;
             // 
-            // lblPhoneNumberErro
+            // lblPhoneNumberError
             // 
-            this.lblPhoneNumberErro.AutoSize = true;
-            this.lblPhoneNumberErro.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumberErro.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberErro.Location = new System.Drawing.Point(26, 217);
-            this.lblPhoneNumberErro.Name = "lblPhoneNumberErro";
-            this.lblPhoneNumberErro.Size = new System.Drawing.Size(0, 16);
-            this.lblPhoneNumberErro.TabIndex = 8;
+            this.lblPhoneNumberError.AutoSize = true;
+            this.lblPhoneNumberError.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumberError.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberError.Location = new System.Drawing.Point(26, 217);
+            this.lblPhoneNumberError.Name = "lblPhoneNumberErro";
+            this.lblPhoneNumberError.Size = new System.Drawing.Size(0, 16);
+            this.lblPhoneNumberError.TabIndex = 8;
             // 
             // lblEmail
             // 
@@ -504,7 +504,7 @@
             this.Controls.Add(this.lblEmailError);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblPhoneNumberErro);
+            this.Controls.Add(this.lblPhoneNumberError);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.txtFullName);
@@ -532,7 +532,7 @@
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.Label lblPhoneNumberErro;
+        private System.Windows.Forms.Label lblPhoneNumberError;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmailError;

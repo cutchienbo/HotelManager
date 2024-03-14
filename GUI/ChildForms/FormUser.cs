@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 namespace GUI.ChildForms
 {
@@ -83,57 +84,65 @@ namespace GUI.ChildForms
         {
             this.resetErrorLog();
 
-            User user = new User();
+            List<ValidateItem> validateItems = new List<ValidateItem>();
 
-            user.sIdCode = txtIdCode.Text;
-            user.sFullName = txtFullName.Text;
-            user.sPhoneNumber = txtPhoneNumber.Text;
-            user.sEmail = txtEmail.Text;
-            user.sAddress = txtAddress.Text;
-            user.sPassword = txtPassword.Text;
-            user.sStatetus = chkStatetus.Checked ? 1 : 0;
-            user.sRoleName = cbbRole.Text;
+            ValidateItem idCode = new ValidateItem(
+                lblIdCodeError, 
+                txtIdCode.Text, 
+                @"empty | pattern:[0-9]+", 
+                @"Id code can not null ! | Id code only accept number !"
+            );
+            validateItems.Add(idCode);
 
-            //Validate:
-            //id code
-            if(user.sIdCode == "")
+            ValidateItem fullName = new ValidateItem(
+               lblFullNameError,
+               txtFullName.Text,
+               @"empty | pattern:[a-zA-Z]+[\s][a-zA-Z]+",
+               @"Full name can not null ! | Wrong full name format !"
+            );
+            validateItems.Add(fullName);
+
+            ValidateItem phoneNumber = new ValidateItem(
+                lblPhoneNumberError,
+                txtPhoneNumber.Text,
+                @"empty | pattern:[0-9]+",
+                @"Phone number can not null ! | Wrong phone number format !"
+            );
+            validateItems.Add(phoneNumber);
+
+            ValidateItem role = new ValidateItem(
+                lblRoleError,
+                cbbRole.Text,
+                @"empty",
+                @"Role can not null"
+            );
+            validateItems.Add(role);
+
+            ValidateItem address = new ValidateItem(
+                lblAddressError,
+                txtAddress.Text,
+                @"empty | pattern:.[,].",
+                @"Address can not null ! | Wrong address format !"
+            );
+            validateItems.Add(address);
+
+            foreach (ValidateItem item in validateItems)
             {
-                lblIdCodeError.Text = "Id code can not null !";
-                return;
+                if (!item.handleValidate())
+                    break;
             }
-
-            if (!Regex.IsMatch(user.sIdCode, @"[0-9]+"))
-            {
-                lblIdCodeError.Text = "Id code accept number only !";
-                return;
-            }
-
-            //full name
-            if (user.sFullName == "")
-            {
-                lblFullNameError.Text = "Full name can not null !";
-                return;
-            }
-
-            if (!Regex.IsMatch(user.sFullName, @"[a-zA-Z]+[\s][a-zA-Z]+"))
-            {
-                lblFullNameError.Text = "Wrong full name format !";
-                return;
-            }
-
-            //
 
         }
 
         private void resetErrorLog()
         {
-            lblAddressError.Text = "";
-            lblEmailError.Text = "";
-            lblFullNameError.Text = "";
-            lblIdCodeError.Text = "";
-            lblPasswordError.Text = "";
-            lblPhoneNumberErro.Text = "";
-            lblRoleError.Text = "";
+            lblAddressError.Text = "address";
+            lblEmailError.Text = "email";
+            lblFullNameError.Text = "fullname";
+            lblIdCodeError.Text = "idcode";
+            lblPasswordError.Text = "pasword";
+            lblPhoneNumberError.Text = "phone";
+            lblRoleError.Text = "role";
         }
     }
 }
