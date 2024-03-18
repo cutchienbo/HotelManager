@@ -27,5 +27,25 @@ namespace BLL
         {
             return this.userDAL.getRoles();
         }
+
+        public User insertUser(User user)
+        {
+            return this.userDAL.insertUser(user);
+        }
+
+        public List<User> searchUser(string field, string searchValue, bool isActive)
+        {
+            return this.userDAL.searchUser(field, searchValue, isActive);
+        }
+
+        public int deleteUser(string id)
+        {
+            return this.userDAL.deleteUser(id);
+        }
+
+        public bool updateUser(User user)
+        {
+            return this.userDAL.updateUser(user);
+        }
     }
 }

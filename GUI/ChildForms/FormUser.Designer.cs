@@ -61,12 +61,17 @@
             this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.btnSave = new FontAwesome.Sharp.IconButton();
             this.lblAddressError = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchValue = new System.Windows.Forms.TextBox();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.lblFullNameError = new System.Windows.Forms.Label();
             this.lblRoleError = new System.Windows.Forms.Label();
             this.chkStatetus = new System.Windows.Forms.CheckBox();
+            this.lblUserLog = new System.Windows.Forms.Label();
+            this.cbbSearchField = new System.Windows.Forms.ComboBox();
+            this.btnReset = new FontAwesome.Sharp.IconButton();
+            this.chkIsActive = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // lstUsers
@@ -222,7 +227,7 @@
             this.lblPhoneNumberError.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneNumberError.ForeColor = System.Drawing.Color.Red;
             this.lblPhoneNumberError.Location = new System.Drawing.Point(26, 217);
-            this.lblPhoneNumberError.Name = "lblPhoneNumberErro";
+            this.lblPhoneNumberError.Name = "lblPhoneNumberError";
             this.lblPhoneNumberError.Size = new System.Drawing.Size(0, 16);
             this.lblPhoneNumberError.TabIndex = 8;
             // 
@@ -244,7 +249,7 @@
             this.txtEmail.ForeColor = System.Drawing.Color.White;
             this.txtEmail.Location = new System.Drawing.Point(270, 187);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(212, 27);
+            this.txtEmail.Size = new System.Drawing.Size(203, 27);
             this.txtEmail.TabIndex = 10;
             // 
             // lblEmailError
@@ -277,7 +282,7 @@
             this.cbbRole.FormattingEnabled = true;
             this.cbbRole.Location = new System.Drawing.Point(270, 31);
             this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(212, 27);
+            this.cbbRole.Size = new System.Drawing.Size(203, 27);
             this.cbbRole.TabIndex = 13;
             // 
             // lblAddress
@@ -317,9 +322,9 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.txtPassword.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(504, 31);
+            this.txtPassword.Location = new System.Drawing.Point(492, 31);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(233, 27);
+            this.txtPassword.Size = new System.Drawing.Size(245, 27);
             this.txtPassword.TabIndex = 17;
             // 
             // lblPasswordError
@@ -337,7 +342,7 @@
             this.lblStatetus.AutoSize = true;
             this.lblStatetus.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatetus.ForeColor = System.Drawing.Color.White;
-            this.lblStatetus.Location = new System.Drawing.Point(500, 165);
+            this.lblStatetus.Location = new System.Drawing.Point(488, 165);
             this.lblStatetus.Name = "lblStatetus";
             this.lblStatetus.Size = new System.Drawing.Size(81, 19);
             this.lblStatetus.TabIndex = 19;
@@ -355,12 +360,13 @@
             this.btnDelete.IconSize = 30;
             this.btnDelete.Location = new System.Drawing.Point(762, 31);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(135, 49);
+            this.btnDelete.Size = new System.Drawing.Size(137, 46);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -372,9 +378,9 @@
             this.btnAdd.IconColor = System.Drawing.Color.White;
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnAdd.IconSize = 30;
-            this.btnAdd.Location = new System.Drawing.Point(762, 99);
+            this.btnAdd.Location = new System.Drawing.Point(762, 87);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(135, 49);
+            this.btnAdd.Size = new System.Drawing.Size(135, 46);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Add";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -391,13 +397,14 @@
             this.btnSave.IconColor = System.Drawing.Color.White;
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 30;
-            this.btnSave.Location = new System.Drawing.Point(762, 165);
+            this.btnSave.Location = new System.Drawing.Point(762, 141);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(135, 49);
+            this.btnSave.Size = new System.Drawing.Size(135, 46);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblAddressError
             // 
@@ -409,26 +416,15 @@
             this.lblAddressError.Size = new System.Drawing.Size(0, 16);
             this.lblAddressError.TabIndex = 24;
             // 
-            // label1
+            // txtSearchValue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(412, 240);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 19);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Search:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
-            this.textBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(504, 236);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 27);
-            this.textBox1.TabIndex = 26;
+            this.txtSearchValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.txtSearchValue.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchValue.ForeColor = System.Drawing.Color.White;
+            this.txtSearchValue.Location = new System.Drawing.Point(562, 247);
+            this.txtSearchValue.Name = "txtSearchValue";
+            this.txtSearchValue.Size = new System.Drawing.Size(175, 27);
+            this.txtSearchValue.TabIndex = 26;
             // 
             // btnSearch
             // 
@@ -441,12 +437,13 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 20;
-            this.btnSearch.Location = new System.Drawing.Point(762, 236);
+            this.btnSearch.Location = new System.Drawing.Point(762, 246);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(135, 27);
+            this.btnSearch.Size = new System.Drawing.Size(67, 27);
             this.btnSearch.TabIndex = 27;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblFullNameError
             // 
@@ -471,11 +468,102 @@
             // chkStatetus
             // 
             this.chkStatetus.AutoSize = true;
-            this.chkStatetus.Location = new System.Drawing.Point(504, 193);
+            this.chkStatetus.Location = new System.Drawing.Point(492, 193);
             this.chkStatetus.Name = "chkStatetus";
             this.chkStatetus.Size = new System.Drawing.Size(18, 17);
             this.chkStatetus.TabIndex = 30;
             this.chkStatetus.UseVisualStyleBackColor = true;
+            // 
+            // lblUserLog
+            // 
+            this.lblUserLog.AutoSize = true;
+            this.lblUserLog.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserLog.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLog.ForeColor = System.Drawing.Color.Red;
+            this.lblUserLog.Location = new System.Drawing.Point(26, 243);
+            this.lblUserLog.Name = "lblUserLog";
+            this.lblUserLog.Size = new System.Drawing.Size(0, 19);
+            this.lblUserLog.TabIndex = 31;
+            // 
+            // cbbSearchField
+            // 
+            this.cbbSearchField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.cbbSearchField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSearchField.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbbSearchField.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSearchField.ForeColor = System.Drawing.Color.White;
+            this.cbbSearchField.FormattingEnabled = true;
+            this.cbbSearchField.Items.AddRange(new object[] {
+            "Full name",
+            "Id code",
+            "Phone number",
+            "Email"});
+            this.cbbSearchField.Location = new System.Drawing.Point(342, 247);
+            this.cbbSearchField.Name = "cbbSearchField";
+            this.cbbSearchField.Size = new System.Drawing.Size(131, 27);
+            this.cbbSearchField.TabIndex = 32;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
+            this.btnReset.IconColor = System.Drawing.Color.White;
+            this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReset.IconSize = 20;
+            this.btnReset.Location = new System.Drawing.Point(830, 246);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(67, 27);
+            this.btnReset.TabIndex = 33;
+            this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // chkIsActive
+            // 
+            this.chkIsActive.AutoSize = true;
+            this.chkIsActive.BackColor = System.Drawing.Color.Transparent;
+            this.chkIsActive.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIsActive.ForeColor = System.Drawing.Color.White;
+            this.chkIsActive.Location = new System.Drawing.Point(492, 251);
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Size = new System.Drawing.Size(64, 20);
+            this.chkIsActive.TabIndex = 34;
+            this.chkIsActive.Text = "Active";
+            this.chkIsActive.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(266, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 19);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Search:";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(762, 194);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(135, 43);
+            this.iconButton1.TabIndex = 36;
+            this.iconButton1.Text = "Clear";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // FormUser
             // 
@@ -483,12 +571,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(911, 591);
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkIsActive);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.cbbSearchField);
+            this.Controls.Add(this.lblUserLog);
             this.Controls.Add(this.chkStatetus);
             this.Controls.Add(this.lblRoleError);
             this.Controls.Add(this.lblFullNameError);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSearchValue);
             this.Controls.Add(this.lblAddressError);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
@@ -557,11 +650,16 @@
         private System.Windows.Forms.ColumnHeader Password;
         private System.Windows.Forms.ColumnHeader Statetus;
         private System.Windows.Forms.ColumnHeader Role;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchValue;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Label lblFullNameError;
         private System.Windows.Forms.Label lblRoleError;
         private System.Windows.Forms.CheckBox chkStatetus;
+        private System.Windows.Forms.Label lblUserLog;
+        private System.Windows.Forms.ComboBox cbbSearchField;
+        private FontAwesome.Sharp.IconButton btnReset;
+        private System.Windows.Forms.CheckBox chkIsActive;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

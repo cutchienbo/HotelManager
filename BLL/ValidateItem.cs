@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace BLL
         private string value;
         private string condition;
         private string error;
+        private Validate validate = new Validate();
 
         public ValidateItem(Label errorLog, string value, string condition, string error)
         {
@@ -51,6 +53,28 @@ namespace BLL
                             case "pattern":
                                 {
                                     if (!Regex.IsMatch(this.value, conditionAndValue[1]))
+                                    {
+                                        this.showErrorLog(errorList[i]);
+
+                                        return false;
+                                    }
+
+                                    break;
+                                }
+                            case "existed":
+                                {
+                                    if (this.validate.checkExisted(conditionAndValue[1], this.value))
+                                    {
+                                        this.showErrorLog(errorList[i]);
+
+                                        return false;
+                                    }
+
+                                    break;
+                                }
+                            case "length":
+                                {
+                                    if (this.validate.checkLength(conditionAndValue[1], this.value))
                                     {
                                         this.showErrorLog(errorList[i]);
 

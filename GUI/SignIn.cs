@@ -15,7 +15,6 @@ namespace GUI
 {
     public partial class SignIn : Form
     {
-        User user = new User();
         UserBLL userBLL = new UserBLL();
 
         public SignIn()
@@ -46,6 +45,8 @@ namespace GUI
             lblIdCodeError.Text = "";
             lblPasswordError.Text = "";
 
+            User user = new User();
+
             if (txtIdCode.Text == "Nhập số căn cước công dân...")
             {
                 lblIdCodeError.Text = "You need to enter the id code !";
@@ -53,7 +54,7 @@ namespace GUI
             }
             else
             {
-                this.user.sIdCode = txtIdCode.Text;
+                user.sIdCode = txtIdCode.Text;
             }
 
             if (txtPassword.Text == "Nhập mật khẩu...")
@@ -63,13 +64,13 @@ namespace GUI
             }
             else
             {
-                this.user.sPassword = txtPassword.Text;
+                user.sPassword = txtPassword.Text;
             }
             
 
-            this.user = userBLL.checkLogin(user);
+            user = userBLL.checkLogin(user);
 
-            if(this.user == null)
+            if(user == null)
             {
                 txtIdCode.Text = "Nhập số căn cước công dân...";
                 txtPassword.Text = "Nhập mật khẩu...";
@@ -79,12 +80,14 @@ namespace GUI
 
                 return;
             }
+            else
+            {
+                this.Hide();
 
-            this.Hide();
+                Manager main = new Manager(user);
 
-            Manager main = new Manager(this.user);
-
-            main.Show();
+                main.Show();
+            }
         }
 
         private void SignIn_Load(object sender, EventArgs e)

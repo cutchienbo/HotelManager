@@ -16,5 +16,10 @@ namespace GUI.ChildForms
         {
             InitializeComponent();
         }
+
+        private void FormCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -148,7 +148,7 @@ namespace GUI.ChildForms
                 }
                 else
                 {
-                    lblTextBoxRoleError.Text = "Role not existed !";
+                    lblTextBoxRoleError.Text = "Role have a references from user !";
                 }
             }
             else
