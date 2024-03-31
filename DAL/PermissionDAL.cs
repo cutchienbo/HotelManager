@@ -16,19 +16,18 @@ namespace DAL
 
         public List<Permission> getPermissions()
         {
-            SqlDataReader res = queryExecuteReader("permission_proc");
+            DataTable res = queryExecuteAdapter("permission_proc");
 
-            if(res != null)
+            if (res != null)
             {
-                do
+                foreach(DataRow row in res.Rows)
                 {
                     Permission per = new Permission();
 
-                    per.sCode = res["code"].ToString();
+                    per.sCode = row["code"].ToString();
 
                     this.permissions.Add(per);
                 }
-                while(res.Read());
 
                 return this.permissions;
             }
@@ -38,62 +37,19 @@ namespace DAL
 
         public List<Role> getRoles()
         {
-            SqlDataReader res = queryExecuteReader("role_proc");
-
-            if(res != null)
+            DataTable res = queryExecuteAdapter("role_proc");
+            
+            foreach(DataRow row in res.Rows)
             {
-                string role = "";
-                string permission = "";
+                Role role = new Role();
+                
+                role.sName = row["name"].ToString();
+                role.sId = row["id"].ToString();
 
-                do
-                {
-                    role += res["name"].ToString() + ",";
-                    permission += res["code"].ToString() + ",";
-                }
-                while(res.Read());
-
-                string[] _role = role.Trim(',').Split(',');
-                string[] _permission = permission.Trim(',').Split(',');
-
-                for(int i = 0; i < _role.Length; i++)
-                {
-                    
-                    Role role1 = new Role();
-
-                    role1.sName = _role[i];
-
-                    int j = 0;
-
-                    if (i < _permission.Length)
-                    {
-                        List<Permission> per = new List<Permission>();
-
-                        for (j = i; j < _role.Length - 1; j++)
-                        {
-                            Permission permission1 = new Permission();
-
-                            permission1.sCode = _permission[j];
-
-                            per.Add(permission1);
-
-                            if (_role[j] != _role[j + 1])
-                            {
-                                break;
-                            }
-                        }
-
-                        role1.sPermission = per;
-
-                        i = j;
-                    }
-
-                    this.roles.Add(role1);
-                }
-
-                return this.roles;
+                this.roles.Add(role);
             }
 
-            return null;
+            return this.roles;
         }
 
         public bool addRole(Role role)
@@ -133,6 +89,31 @@ namespace DAL
 
             SqlDataReader res = queryExecuteReader("role_permission_proc", param, value);
         }
+
+        public List<Permission> getPermissionByRoleName(string roleName)
+        {
+            string[] param = { "role_name" };
+            string[] value = { roleName };
+            List<Permission> list = new List<Permission>();
+
+            DataTable res = queryExecuteAdapter("select_per_by_role_name_proc", param, value);
+
+            if(res != null)
+            {
+                foreach(DataRow row in res.Rows)
+                {
+                    Permission permission = new Permission();
+                    permission.sCode = row["code"].ToString();
+
+                    list.Add(permission);
+                }
+
+                return list;
+            }
+
+            return null;
+        }
+
     }
 
 }

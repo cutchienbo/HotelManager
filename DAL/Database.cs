@@ -38,6 +38,40 @@ namespace DAL
             }
         }
 
+        protected DataTable queryExecuteAdapter(string proc, string[] param = null, string[] value = null)
+        {
+            _conn.Close();
+
+            _conn.Open();
+
+            SqlCommand command = new SqlCommand(proc, _conn);
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            if(param != null && value != null)
+            {
+                for (int i = 0; i < param.Length; i++)
+                {
+                    SqlParameter p = new SqlParameter("@" + param[i], value[i]);
+                    p.Direction = ParameterDirection.Input;
+                    p.DbType = DbType.String;
+                    command.Parameters.Add(p);
+                }
+            }
+
+            command.ExecuteNonQuery();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable res = new DataTable();
+
+            adapter.Fill(res);
+
+            _conn.Close();
+
+            return res;
+        }
+
         protected SqlDataReader queryExecuteReader(string proc, string[] param = null, string[] value = null)
         {
             _conn.Close();

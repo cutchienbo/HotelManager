@@ -185,7 +185,7 @@ namespace GUI
 
         public void btnService()
         {
-            Form childForm = new FormCustomer();
+            Form childForm = new FormService();
 
             openChildForm(childForm);
         }

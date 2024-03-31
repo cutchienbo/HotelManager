@@ -47,44 +47,41 @@ namespace GUI.ChildForms
 
             txtRole.Text = selectedRole;
 
-            foreach (Role role in this.roles)
+            List<Permission> pers = new List<Permission>();
+
+            pers = perBll.getPermissionByRoleName(selectedRole);
+
+            lstRolePer.Items.Clear();
+            lstFull.Items.Clear();         
+
+            foreach (Permission per in pers)
             {
-                if (role.sName == selectedRole)
+                lstRolePer.Items.Add(per.sCode);
+            }
+
+            bool check = true;
+
+            foreach (Permission per in this.permissions)
+            {
+                check = true;
+
+                foreach (Permission per2 in pers)
                 {
-                    lstRolePer.Items.Clear();
-                    lstFull.Items.Clear();
-
-                    foreach (Permission per in role.sPermission)
+                    if (per.sCode == per2.sCode)
                     {
-                        lstRolePer.Items.Add(per.sCode);
+                        check = false;
+
+                        break;
                     }
+                }
 
-                    bool check = true;
-
-                    foreach (Permission per in this.permissions)
-                    {
-                        check = true;
-
-                        foreach (Permission per2 in role.sPermission)
-                        {
-                            if (per.sCode == per2.sCode)
-                            {
-                                check = false;
-
-                                break;
-                            }
-                        }
-
-                        if (check)
-                        {
-                            lstFull.Items.Add(per.sCode);
-                        }
-                    }
-
-                    break;
+                if (check)
+                {
+                    lstFull.Items.Add(per.sCode);
                 }
             }
         }
+            
 
         private void btnAdd_Click(object sender, EventArgs e)
         {

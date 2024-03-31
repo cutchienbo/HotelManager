@@ -55,7 +55,7 @@ namespace DTO
             this.permissions = new List<Permission>();
         }
 
-        public Role(string _id, string _name, List<Permission> _permission)
+        public Role(string _id, string _name, List<Permission> _permission = null)
         {
             this.id = _id;
             this.name = _name;

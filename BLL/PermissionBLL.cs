@@ -41,5 +41,10 @@ namespace BLL
         {
             perDAL.editRolePermission(roleName, perCode, "0");
         }
+
+        public List<Permission> getPermissionByRoleName(string roleName)
+        {
+            return perDAL.getPermissionByRoleName(roleName);
+        }
     }
 }

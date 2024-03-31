@@ -163,8 +163,6 @@ namespace GUI.ChildForms
                 {
                     this.showLog("Insert user success !", true);
 
-                    this.clearTextBox();
-
                     addUserToListView(user);
                 }
                 else
@@ -271,8 +269,6 @@ namespace GUI.ChildForms
                         this.showLog("Update success !", true);
 
                         lstUsers.Items.Clear();
-
-                        this.clearTextBox();
 
                         this.showUsers();
                     }
