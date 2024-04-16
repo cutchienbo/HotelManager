@@ -4,30 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using DP;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class ConfigDAL : Database
+    public class ConfigDAL
     {
         Config config = new Config();
 
         public Config getConfigInfo()
         {
-            SqlDataReader res = queryExecuteReader("config_proc");
+            DataTable res = DB.queryExecuteAdapter("config_proc");
 
             if(res != null)
             {
-               
-                do {
-                    this.config.sCheckinTime = res["checkin_time"].ToString();
-                    this.config.sCheckoutTime = res["checkout_time"].ToString();
+               foreach(DataRow row in res.Rows)
+               {
+                    this.config.sCheckinTime = row["checkin_time"].ToString();
+                    this.config.sCheckoutTime = row["checkout_time"].ToString();
+               }
 
-                    return this.config;
-                } 
-                while (res.Read()) ;
-
-             
+                return this.config;
             }
             else
             {
@@ -37,12 +36,12 @@ namespace DAL
 
         public bool editConfigInfo(Config config)
         {
-            string[] param = { "checkin_time", "checkout_time" };
-            string[] value = {config.sCheckinTime, config.sCheckoutTime};
+            DB.addParam("checkin_time", config.sCheckinTime);
+            DB.addParam("checkout_time", config.sCheckoutTime);
 
             try
             {
-                SqlDataReader res = queryExecuteReader("edit_config_proc", param, value);
+                DataTable res = DB.queryExecuteAdapter("edit_config_proc");
 
                 return true;
             }

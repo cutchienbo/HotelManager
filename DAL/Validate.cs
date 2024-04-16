@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DP;
 
 namespace DAL
 {
-    public class Validate : Database
+    public class Validate 
     {
         public bool checkExisted(string condition, string checkValue)
         {
@@ -15,9 +17,9 @@ namespace DAL
 
             string query = "SELECT " + colAndTable[0] + " FROM  [" + colAndTable[1] + "] WHERE  " + colAndTable[0] + " = '" + checkValue + "'";
 
-            SqlDataReader res = queryExecute(query);
+            DataTable res = DB.queryExecute(query);
 
-            if(res != null)
+            if(res.Rows.Count > 0)
             {
                 return true;
             }

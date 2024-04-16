@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMain.AutoScroll = true;
             this.panelMain.AutoScrollMargin = new System.Drawing.Size(5, 0);
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.panelMain.Location = new System.Drawing.Point(0, 100);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
@@ -59,14 +59,14 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.panel1.Controls.Add(this.radMaxsize);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.radMinisize);
             this.panel1.Controls.Add(this.radClose);
             this.panel1.Location = new System.Drawing.Point(224, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1232, 114);
+            this.panel1.Size = new System.Drawing.Size(1232, 98);
             this.panel1.TabIndex = 4;
             // 
             // radMaxsize
@@ -83,19 +83,19 @@
             // iconButton1
             // 
             this.iconButton1.AutoEllipsis = true;
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(1049, 44);
+            this.iconButton1.Location = new System.Drawing.Point(1042, 44);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(172, 46);
+            this.iconButton1.Size = new System.Drawing.Size(179, 46);
             this.iconButton1.TabIndex = 0;
             this.iconButton1.Text = "Sign out";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -127,11 +127,12 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.panel2.Controls.Add(this.lblName);
             this.panel2.Location = new System.Drawing.Point(0, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 99);
+            this.panel2.Size = new System.Drawing.Size(225, 98);
             this.panel2.TabIndex = 5;
             // 
             // lblName
@@ -139,7 +140,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.lblName.Location = new System.Drawing.Point(12, 33);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 24);
@@ -151,9 +152,11 @@
             // 
             this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelChildForm.Location = new System.Drawing.Point(224, 107);
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
+            this.panelChildForm.Location = new System.Drawing.Point(224, 100);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1232, 716);
+            this.panelChildForm.Size = new System.Drawing.Size(1232, 723);
             this.panelChildForm.TabIndex = 6;
             // 
             // Manager

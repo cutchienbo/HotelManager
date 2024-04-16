@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using DP;
 
 namespace DAL
 {
-    public class PermissionDAL : Database
+    public class PermissionDAL
     {
         List<Role> roles = new List<Role>();
         List<Permission> permissions = new List<Permission>();
 
         public List<Permission> getPermissions()
         {
-            DataTable res = queryExecuteAdapter("permission_proc");
+            DataTable res = DB.queryExecuteAdapter("permission_proc");
 
             if (res != null)
             {
@@ -37,7 +38,7 @@ namespace DAL
 
         public List<Role> getRoles()
         {
-            DataTable res = queryExecuteAdapter("role_proc");
+            DataTable res = DB.queryExecuteAdapter("role_proc");
             
             foreach(DataRow row in res.Rows)
             {
@@ -54,10 +55,9 @@ namespace DAL
 
         public bool addRole(Role role)
         {
-            string[] param = { "name" };
-            string[] value = { role.sName };
+            DB.addParam("name", role.sName);
 
-            SqlDataReader res = queryExecuteReader("add_role_proc", param, value);
+            DataTable res = DB.queryExecuteAdapter("add_role_proc");
 
             if (res != null)
             {
@@ -69,10 +69,9 @@ namespace DAL
 
         public bool removeRole(Role role)
         {
-            string[] param = { "name" };
-            string[] value = { role.sName };
+            DB.addParam("name", role.sName);
 
-            SqlDataReader res = queryExecuteReader("remove_role_proc", param, value);
+            DataTable res = DB.queryExecuteAdapter("remove_role_proc");
 
             if (res != null)
             {
@@ -84,19 +83,20 @@ namespace DAL
 
         public void editRolePermission(string roleName, string perCode, string isInsert)
         {
-            string[] param = { "per_code", "role_name", "is_insert" };
-            string[] value = { perCode, roleName, isInsert };
+            DB.addParam("per_code", perCode);
+            DB.addParam("role_name", roleName);
+            DB.addParam("is_insert", isInsert);
 
-            SqlDataReader res = queryExecuteReader("role_permission_proc", param, value);
+            DataTable res = DB.queryExecuteAdapter("role_permission_proc");
         }
 
         public List<Permission> getPermissionByRoleName(string roleName)
         {
-            string[] param = { "role_name" };
-            string[] value = { roleName };
             List<Permission> list = new List<Permission>();
 
-            DataTable res = queryExecuteAdapter("select_per_by_role_name_proc", param, value);
+            DB.addParam("role_name", roleName);
+
+            DataTable res = DB.queryExecuteAdapter("select_per_by_role_name_proc");
 
             if(res != null)
             {

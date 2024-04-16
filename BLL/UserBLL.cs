@@ -47,5 +47,20 @@ namespace BLL
         {
             return this.userDAL.updateUser(user);
         }
+
+        public List<User> getCustomer()
+        {
+            return this.userDAL.getCustomer();
+        }
+
+        public List<User> searchCustomer(User user)
+        {
+            return this.userDAL.searchCustomer(user);
+        }
+
+        public bool changeCustomerState(string idCode, int state)
+        {
+            return this.userDAL.changeCustomerState(idCode, state);
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace GUI
             InitializeComponent();
             this.leftBtnBorder = new Panel();
             this.leftBtnBorder.Size = new Size(6, 62);
-            this.leftBtnBorder.BackColor = Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.leftBtnBorder.BackColor = Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.leftBtnBorder.TabIndex = 2;
             this.leftBtnBorder.BringToFront();
 
@@ -89,11 +89,11 @@ namespace GUI
 
         public void activeBtnHandle(IconButton button)
         {
-            button.ForeColor = Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            button.ForeColor = Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             button.Font = new System.Drawing.Font("Arial", 8.2F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            button.IconColor = Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(254)))), ((int)(((byte)(241)))));
-            button.BackColor = Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
-            button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            button.IconColor = Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            button.BackColor = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
+            button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
             button.ImageAlign = ContentAlignment.MiddleRight;
             button.TextAlign = ContentAlignment.MiddleCenter;
             button.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -109,8 +109,8 @@ namespace GUI
             button.ForeColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             button.Font = new Font("Arial", 8.2F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             button.IconColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            button.BackColor = Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            button.BackColor = Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             button.ImageAlign = ContentAlignment.MiddleLeft;
             button.TextAlign = ContentAlignment.MiddleLeft;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;

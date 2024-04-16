@@ -304,7 +304,7 @@ namespace GUI.ChildForms
         {
             if(type == true)
             {
-                lblUserLog.ForeColor = Color.LightGreen;
+                lblUserLog.ForeColor = Color.Lime;
             }
             else
             {

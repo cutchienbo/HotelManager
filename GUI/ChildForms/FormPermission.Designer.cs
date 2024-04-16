@@ -44,10 +44,10 @@
             // 
             // lstFull
             // 
-            this.lstFull.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.lstFull.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.lstFull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lstFull.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstFull.ForeColor = System.Drawing.Color.White;
+            this.lstFull.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.lstFull.FormattingEnabled = true;
             this.lstFull.ItemHeight = 23;
             this.lstFull.Location = new System.Drawing.Point(26, 65);
@@ -57,9 +57,9 @@
             // 
             // lstRolePer
             // 
-            this.lstRolePer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.lstRolePer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.lstRolePer.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstRolePer.ForeColor = System.Drawing.Color.White;
+            this.lstRolePer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.lstRolePer.FormattingEnabled = true;
             this.lstRolePer.ItemHeight = 23;
             this.lstRolePer.Location = new System.Drawing.Point(616, 65);
@@ -71,7 +71,7 @@
             // 
             this.lblPer.AutoSize = true;
             this.lblPer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPer.ForeColor = System.Drawing.Color.White;
+            this.lblPer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.lblPer.Location = new System.Drawing.Point(22, 32);
             this.lblPer.Name = "lblPer";
             this.lblPer.Size = new System.Drawing.Size(96, 19);
@@ -82,7 +82,7 @@
             // 
             this.lblPerOfRole.AutoSize = true;
             this.lblPerOfRole.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerOfRole.ForeColor = System.Drawing.Color.White;
+            this.lblPerOfRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.lblPerOfRole.Location = new System.Drawing.Point(612, 32);
             this.lblPerOfRole.Name = "lblPerOfRole";
             this.lblPerOfRole.Size = new System.Drawing.Size(156, 19);
@@ -91,13 +91,15 @@
             // 
             // btnRemovePerOfRole
             // 
-            this.btnRemovePerOfRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.btnRemovePerOfRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.btnRemovePerOfRole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemovePerOfRole.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRemovePerOfRole.FlatAppearance.BorderSize = 0;
             this.btnRemovePerOfRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemovePerOfRole.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemovePerOfRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnRemovePerOfRole.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
-            this.btnRemovePerOfRole.IconColor = System.Drawing.Color.White;
+            this.btnRemovePerOfRole.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnRemovePerOfRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRemovePerOfRole.IconSize = 30;
             this.btnRemovePerOfRole.Location = new System.Drawing.Point(529, 443);
@@ -109,13 +111,15 @@
             // 
             // btnAddPerOfRole
             // 
-            this.btnAddPerOfRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.btnAddPerOfRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.btnAddPerOfRole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddPerOfRole.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddPerOfRole.FlatAppearance.BorderSize = 0;
             this.btnAddPerOfRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPerOfRole.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPerOfRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnAddPerOfRole.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
-            this.btnAddPerOfRole.IconColor = System.Drawing.Color.White;
+            this.btnAddPerOfRole.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnAddPerOfRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddPerOfRole.IconSize = 30;
             this.btnAddPerOfRole.Location = new System.Drawing.Point(316, 443);
@@ -127,13 +131,13 @@
             // 
             // lstRole
             // 
-            this.lstRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.lstRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.lstRole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lstRole.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstRole.ForeColor = System.Drawing.Color.White;
+            this.lstRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.lstRole.FormattingEnabled = true;
             this.lstRole.ItemHeight = 23;
-            this.lstRole.Location = new System.Drawing.Point(316, 65);
+            this.lstRole.Location = new System.Drawing.Point(318, 65);
             this.lstRole.Name = "lstRole";
             this.lstRole.Size = new System.Drawing.Size(262, 188);
             this.lstRole.TabIndex = 12;
@@ -143,7 +147,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.label1.Location = new System.Drawing.Point(312, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 19);
@@ -152,25 +156,27 @@
             // 
             // txtRole
             // 
-            this.txtRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.txtRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.txtRole.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRole.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRole.ForeColor = System.Drawing.Color.White;
-            this.txtRole.Location = new System.Drawing.Point(316, 271);
+            this.txtRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.txtRole.Location = new System.Drawing.Point(318, 280);
             this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(262, 30);
+            this.txtRole.Size = new System.Drawing.Size(262, 23);
             this.txtRole.TabIndex = 14;
             this.txtRole.TextChanged += new System.EventHandler(this.txtRole_TextChanged);
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDelete.IconColor = System.Drawing.Color.White;
+            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 30;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -186,14 +192,15 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnAdd.IconColor = System.Drawing.Color.White;
+            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdd.IconSize = 30;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -220,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
             this.ClientSize = new System.Drawing.Size(921, 582);
             this.Controls.Add(this.lblTextBoxRoleError);
             this.Controls.Add(this.btnAdd);

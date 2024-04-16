@@ -92,5 +92,10 @@ namespace GUI.ChildForms
         {
 
         }
+
+        private void lblCheckInTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

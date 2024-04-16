@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,6 +129,52 @@ namespace DTO
             {
                 this.statetus = value;
             }
+        }
+
+        public Dictionary<string, dynamic> getUserToDictionary(bool needId = false)
+        {
+            Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
+
+            if(needId == true)
+            {
+                data.Add("id", this.id);
+            }
+
+            data.Add("id_code", this.id_code);
+            data.Add("full_name", this.full_name);
+            data.Add("role_name", this.role_name);
+            data.Add("phone_number", this.phone_number);
+            data.Add("email", this.email);
+            data.Add("address", this.address);
+            data.Add("password", this.password);
+            data.Add("statetus", this.statetus);
+
+            return data;
+        }
+
+        public void addDataToUser(DataRow row)
+        {
+            this.id = (int)row["id"];
+            this.role_id = (int)row["role_id"];
+            this.role_name = row["name"].ToString();
+            this.full_name = row["full_name"].ToString();
+            this.id_code = row["id_code"].ToString();
+            this.phone_number = row["phone_number"].ToString();
+            this.email = row["email"].ToString();
+            this.address = row["address"].ToString();
+            this.password = row["password"].ToString();
+            this.statetus = (int)row["statetus"];
+        }
+
+        public void addDataToCustomer(DataRow row)
+        {
+            this.id = (int)row["id"];
+            this.full_name = row["full_name"].ToString();
+            this.id_code = row["id_code"].ToString();
+            this.phone_number = row["phone_number"].ToString();
+            this.email = row["email"].ToString();
+            this.address = row["address"].ToString();
+            this.statetus = (int)row["statetus"];
         }
 
         public List<Permission> sPermission
