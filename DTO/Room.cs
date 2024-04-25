@@ -17,7 +17,7 @@ namespace DTO
 
         public int bed { get; set;}
 
-        public int price { get; set; }
+        public string price { get; set; }
 
         public int status { get; set; }
 
@@ -51,7 +51,7 @@ namespace DTO
             this.room_number = data["room_number"].ToString();
             this.room_type_name = data["name"].ToString();
             this.bed = Convert.ToInt32(data["bed"]);
-            this.price = Convert.ToInt32(data["price"]);
+            this.price = data["price"].ToString();
             this.status = Convert.ToInt32(data["status"]);
             this.deleted = Convert.ToInt32(data["deleted"]);
         }

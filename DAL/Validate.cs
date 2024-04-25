@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DP;
+using LIB;
 
 namespace DAL
 {
@@ -41,7 +41,7 @@ namespace DAL
                 int min = a > b ? b : a;
                 int max = (a + b) - min;
 
-                if (length < min || length > max)
+                if (length >= min && length <= max)
                 {
                     return true;
                 }
@@ -66,7 +66,7 @@ namespace DAL
             }
             else
             {
-                return length == int.Parse(condition.Trim(' '));
+                return length == Convert.ToInt32(condition.Trim(' '));
             }
 
             return false;

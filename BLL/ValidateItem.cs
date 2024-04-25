@@ -74,7 +74,7 @@ namespace BLL
                                 }
                             case "length":
                                 {
-                                    if (this.validate.checkLength(conditionAndValue[1], this.value))
+                                    if (!this.validate.checkLength(conditionAndValue[1], this.value))
                                     {
                                         this.showErrorLog(errorList[i]);
 

@@ -63,4 +63,4 @@ C:\Users\ADMIN\source\repos\HotelManager\DTO\bin\Debug\System.Text.Encodings.Web
 C:\Users\ADMIN\source\repos\HotelManager\DTO\bin\Debug\System.Text.Json.xml
 C:\Users\ADMIN\source\repos\HotelManager\DTO\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ADMIN\source\repos\HotelManager\DTO\bin\Debug\System.ValueTuple.xml
-C:\Users\ADMIN\source\repos\HotelManager\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\ADMIN\source\repos\HotelManager\DTO\obj\Debug\DTO.csproj.Up2Date

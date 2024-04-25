@@ -25,6 +25,7 @@ namespace GUI.ChildForms
         public FormUser()
         {
             InitializeComponent();
+
             this.showUsers();
             this.showRoles();
             cbbSearchField.SelectedIndex = 0;
@@ -90,7 +91,7 @@ namespace GUI.ChildForms
             ValidateItem idCode = new ValidateItem(
                 lblIdCodeError,
                 txtIdCode.Text,
-                @"empty | pattern:[0-9]+ | existed:id_code-user | length:13",
+                @"empty | pattern:[0-9]+ | existed:id_code-user | length:12",
                 @"Id code can not null ! | Id code only accept number ! | Id code existed ! | Correct length is 13"
             );
             validateItems.Add(idCode);
@@ -141,7 +142,7 @@ namespace GUI.ChildForms
                @"empty | length:8-16",
                @"Email can not null ! | Correct length is 8 -16 !"
            );
-            validateItems.Add(email);
+            validateItems.Add(password);
 
             bool check = true;
 
@@ -195,7 +196,7 @@ namespace GUI.ChildForms
                 ValidateItem idCode = new ValidateItem(
                     lblIdCodeError,
                     txtIdCode.Text,
-                    @"empty | pattern:[0-9]+ | length:13",
+                    @"empty | pattern:[0-9]+ | length:12",
                     @"Id code can not null ! | Id code only accept number ! | Correct length is 13"
                 );
                 validateItems.Add(idCode);
@@ -420,6 +421,11 @@ namespace GUI.ChildForms
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
             this.clearTextBox();
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

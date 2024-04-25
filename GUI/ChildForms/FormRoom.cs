@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using System.Windows.Documents;
+using LIB;
 
 namespace GUI.ChildForms
 {
@@ -33,15 +34,9 @@ namespace GUI.ChildForms
                     statusLog = "Empty";
                     break;
                 case 1:
-                    statusLog = "Booked";
-                    break;
-                case 2:
-                    statusLog = "Active";
-                    break;
-                case 3:
                     statusLog = "Maintaining";
                     break;
-                case 4:
+                case 2:
                     statusLog = "Cleaning";
                     break;
             }
@@ -52,7 +47,7 @@ namespace GUI.ChildForms
                 room.room_type_name,
                 room.bed.ToString(),
                 statusLog,
-                room.price.ToString(),
+                Money.convertMoney(room.price.ToString()),
                 room.deleted == 0? "No": "Yes",
                 room.room_number,
                 room.id.ToString()
@@ -115,7 +110,7 @@ namespace GUI.ChildForms
 
             cbbRoomType.SelectedItem = lstItem.SubItems[1].Text;
             txtBed.Text = lstItem.SubItems[2].Text;
-            txtPrice.Text = lstItem.SubItems[4].Text;
+            txtPrice.Text = lstItem.SubItems[4].Text.Replace(".", "");
             chkStatetus.Checked = lstItem.SubItems[5].Text == "Yes" ? true : false;
             txtRoomNumber.Text = lstItem.SubItems[6].Text;
         }
@@ -163,10 +158,10 @@ namespace GUI.ChildForms
                 ListViewItem item = lstRoom.FocusedItem;
 
                 room.id = Convert.ToInt32(item.SubItems[7].Text);
-                room.room_number = item.SubItems[6].Text;
+                room.room_number = txtRoomNumber.Text;
                 room.room_type_name = cbbRoomType.Text;
                 room.bed = Convert.ToInt32(txtBed.Text);
-                room.price = Convert.ToInt32(txtPrice.Text);
+                room.price = txtPrice.Text;
                 room.deleted = chkStatetus.Checked == true ? 1 : 0;
 
                 List<ValidateItem> validateItems = new List<ValidateItem>();
@@ -183,8 +178,8 @@ namespace GUI.ChildForms
                 ValidateItem roomNumber = new ValidateItem(
                     lblRoomNumberError,
                     txtRoomNumber.Text,
-                    @"empty | pattern:[0-9]+",
-                    @"Room number can not empty ! | Accept number only !"
+                    @"empty | pattern:[0-9]+ | existed:room_number-room",
+                    @"Room number can not empty ! | Accept number only ! | Room number is existed !"
                 );
 
                 validateItems.Add(roomNumber);
@@ -229,7 +224,7 @@ namespace GUI.ChildForms
 
                         lstRoom.FocusedItem.SubItems[1].Text = room.room_type_name;
                         lstRoom.FocusedItem.SubItems[2].Text = room.bed.ToString();
-                        lstRoom.FocusedItem.SubItems[4].Text = room.price.ToString();
+                        lstRoom.FocusedItem.SubItems[4].Text = Money.convertMoney(room.price.ToString());
                         lstRoom.FocusedItem.SubItems[5].Text = room.deleted == 0 ? "No" : "Yes";
                         lstRoom.FocusedItem.SubItems[6].Text = room.room_number;
                     }
@@ -254,7 +249,7 @@ namespace GUI.ChildForms
             room.room_type_name = cbbRoomType.Text;
             room.room_number = txtRoomNumber.Text;
             room.bed = Convert.ToInt32(txtBed.Text);
-            room.price = Convert.ToInt32(txtPrice.Text);
+            room.price = txtPrice.Text;
             room.deleted = chkStatetus.Checked == true ? 1 : 0;
 
             List<ValidateItem> validateItems = new List<ValidateItem>();
@@ -271,8 +266,8 @@ namespace GUI.ChildForms
             ValidateItem roomNumber = new ValidateItem(
                 lblRoomNumberError,
                 txtRoomNumber.Text,
-                @"empty | pattern:[0-9]+",
-                @"Room number can not empty ! | Accept number only !"
+                @"empty | pattern:[0-9]+ | existed:room_number-room",
+                @"Room number can not empty ! | Accept number only ! | Room number is existed !"
             );
 
             validateItems.Add(roomNumber);

@@ -41,6 +41,24 @@ namespace GUI.ChildForms
 
         private void addOrderToListView(Order order)
         {
+            string status = "";
+
+            switch (order.status)
+            {
+                case 1:
+                    status = "Success";
+                    break;
+                case 2:
+                    status = "Booking";
+                    break;
+                case 3:
+                    status = "Active";
+                    break;
+                case 4:
+                    status = "Cancel";
+                    break;
+            }
+
             string[] item =
             {
                 order.id.ToString(),
@@ -48,7 +66,7 @@ namespace GUI.ChildForms
                 order.customer_name,
                 order.check_in_date.Substring(0, 10),
                 order.check_out_date.Substring(0, 10),
-                order.status == 1 ? "Active" : "Disable",
+                status,
                 order.price.ToString(),
                 (this.totalOrder - 1).ToString()
             };
@@ -67,6 +85,7 @@ namespace GUI.ChildForms
                 this.totalService.ToString(),
                 service.name,
                 service.price.ToString(),
+                service.quantity.ToString()
             };
 
             ListViewItem lstItem = new ListViewItem(item);
@@ -157,18 +176,8 @@ namespace GUI.ChildForms
             txtOrderPrice.Text = item.SubItems[6].Text;
             txtCustomer.Text = item.SubItems[2].Text;
             txtStaff.Text = item.SubItems[1].Text;
-            chkStatetus.Checked = item.SubItems[5].Text == "Active" ? true : false;
             dtpOrderCheckIn.Value = DateTime.Parse(item.SubItems[3].Text);
             dtpOrderCheckOut.Value = DateTime.Parse(item.SubItems[4].Text);
-
-            if(item.SubItems[5].Text == "Active")
-            {
-                btnUndo.Enabled = false;
-            }
-            else
-            {
-                btnUndo.Enabled = true;
-            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -185,7 +194,22 @@ namespace GUI.ChildForms
             order.price = Convert.ToInt32(txtOrderPrice.Text == "" ? "0" : txtOrderPrice.Text);
             order.check_in_date = dtpOrderCheckIn.Value.ToString().Substring(0, 10);
             order.check_out_date = dtpOrderCheckOut.Value.ToString().Substring(0, 10);
-            order.status = chkStatetus.Checked == true ? 1 : 0;
+
+            switch (cbbStatus.Text)
+            {
+                case "Success":
+                    order.status = 1;
+                    break;
+                case "Booking":
+                    order.status = 2;
+                    break;
+                case "Active":
+                    order.status = 3;
+                    break;
+                case "Cancel":
+                    order.status = 4;
+                    break;
+            }
 
             this.orderList = this.orderBLL.searchOrder(order);
 
@@ -208,65 +232,6 @@ namespace GUI.ChildForms
             if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (lstOrder.SelectedItems.Count > 0)
-            {
-                ListViewItem item = lstOrder.FocusedItem;
-
-                int id = Convert.ToInt32(item.SubItems[0].Text);
-                int status = item.SubItems[5].Text == "Active" ? 1 : 0;
-
-                bool res = this.orderBLL.deleteOrder(id, status);
-
-                if (res == true)
-                {
-                    this.showLog("Delete success!", true);
-
-                    lstOrder.Items.Remove(item);
-                }
-                else
-                {
-                    this.showLog("Remove success!", true);
-
-                    item.SubItems[5].Text = "Disable";
-                }
-            }
-            else
-            {
-                this.showLog("Select order to delete !", false);
-            }
-        }
-
-        private void btnUndo_Click(object sender, EventArgs e)
-        {
-            if (lstOrder.SelectedItems.Count > 0)
-            {
-                ListViewItem item = lstOrder.FocusedItem;
-
-                int id = Convert.ToInt32(item.SubItems[0].Text);
-
-                bool res = this.orderBLL.undoOrder(id);
-
-                if (res == true)
-                {
-                    this.showLog("Undo success!", true);
-
-                    item.SubItems[5].Text = "Active";
-
-                    btnUndo.Enabled = false;
-                }
-                else
-                {
-                    this.showLog("Undo fail!", false);
-                }
-            }
-            else
-            {
-                this.showLog("Select order to undo !", false);
             }
         }
     }

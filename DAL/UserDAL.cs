@@ -7,7 +7,7 @@ using System.Data;
 using DTO;
 using System.Data.SqlClient;
 using System.Collections;
-using DP;
+using LIB;
 
 namespace DAL
 {
@@ -223,11 +223,11 @@ namespace DAL
         {
             try
             {
-                DB.addParam("id_code", user.sIdCode);
-                DB.addParam("full_name", user.sFullName);
-                DB.addParam("phone_number", user.sPhoneNumber);
-                DB.addParam("email", user.sEmail);
-                DB.addParam("address", user.sAddress);
+                DB.addParam("id_code", user.sIdCode == "" ? null: user.sIdCode);
+                DB.addParam("full_name", user.sFullName == "" ? null: user.sFullName);
+                DB.addParam("phone_number", user.sPhoneNumber == "" ? null : user.sPhoneNumber);
+                DB.addParam("email", user.sEmail == "" ? null : user.sEmail);
+                DB.addParam("address", user.sAddress == "" ? null : user.sAddress);
                 DB.addParam("statetus", user.sStatetus);
 
                 DataTable res = DB.queryExecuteAdapter("search_customer");

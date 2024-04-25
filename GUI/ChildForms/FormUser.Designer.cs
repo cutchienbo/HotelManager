@@ -227,6 +227,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(214, 23);
             this.txtPhoneNumber.TabIndex = 7;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // lblPhoneNumberError
             // 

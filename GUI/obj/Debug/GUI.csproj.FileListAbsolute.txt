@@ -12,7 +12,6 @@ C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DAL.dll
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\BLL.pdb
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DTO.pdb
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DAL.pdb
-C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.exe
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.pdb
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.Resource1.resources
@@ -90,3 +89,9 @@ C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\System.ValueTuple.xml
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DP.dll
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DAL.dll.config
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DP.pdb
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.csproj.Up2Date
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChildForm.CreateOrderForm.resources
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChildForm.AddServiceForm.resources
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChildForm.CheckOutForm.resources
+C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DevExpress.Data.v23.2.dll
+C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DevExpress.Data.v23.2.xml

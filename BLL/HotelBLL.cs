@@ -12,14 +12,74 @@ namespace BLL
     {
         private HotelDAL hotelDAL = new HotelDAL();
 
-        public List<Room> getRoomOrder(string startDate, string endDate)
+        public List<Room> getRoomOrder(string startDate, string endDate, string roomTypeName = "")
         {
-            return this.hotelDAL.getRoomOrder(startDate, endDate);
+            return this.hotelDAL.getRoomOrder(startDate, endDate, roomTypeName);
+        }
+
+        public List<RoomType> getRoomType()
+        {
+            return this.hotelDAL.getRoomType();
+        }
+
+        public string[] getTimeConfig()
+        {
+            return this.hotelDAL.getTimeConfig();
         }
 
         public bool changeRoomStatus(int roomId, int status)
         {
             return this.hotelDAL.changeRoomStatus(roomId, status);
+        }
+
+        public List<Service> getOrderService(int orderId)
+        {
+            return this.hotelDAL.getOrderService(orderId);
+        }
+
+        public User getCustomerByIdCode(string idCode)
+        {
+            return this.hotelDAL.getCustomerByIdCode(idCode);
+        }
+
+        public int insertCustomer(User customer)
+        {
+            return this.hotelDAL.insertCustomer(customer);
+        }
+
+        public int insertOrder(Order order)
+        {
+            return this.hotelDAL.insertOrder(order);
+        }
+
+        public bool insertOrderRoom(int orderId, int roomId)
+        {
+            return this.hotelDAL.insertOrderRoom(orderId, roomId);
+        }
+
+        public bool changeOrderStatus(int orderId, int status)
+        {
+            return this.hotelDAL.changeOrderStatus(orderId, status);
+        }
+
+        public string getTotalOrderPrice(int orderId)
+        {
+            return this.hotelDAL.getTotalOrderPrice(orderId);   
+        }
+
+        public List<Service> getService()
+        {
+            return this.hotelDAL.getService();
+        }
+
+        public bool insertOrderService(int orderId, int serviceId, int quantity)
+        {
+            return this.hotelDAL.insertOrderService(orderId, serviceId, quantity);
+        }
+
+        public List<Room> getRoomByOrderId(int orderId)
+        {
+            return this.hotelDAL.getRoomByOrderId(orderId);
         }
     }
 }

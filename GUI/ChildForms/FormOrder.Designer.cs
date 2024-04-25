@@ -40,6 +40,7 @@
             this.orderServicesIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderServicesName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderServicesPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRoleError = new System.Windows.Forms.Label();
             this.lblPasswordError = new System.Windows.Forms.Label();
             this.txtCustomer = new System.Windows.Forms.TextBox();
@@ -51,10 +52,7 @@
             this.dtpOrderCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dtpOrderCheckOut = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkStatetus = new System.Windows.Forms.CheckBox();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnClear = new FontAwesome.Sharp.IconButton();
             this.lstRoom = new System.Windows.Forms.ListView();
             this.orderRoomIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,7 +60,8 @@
             this.orderRoomType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblLog = new System.Windows.Forms.Label();
             this.txtStaff = new System.Windows.Forms.TextBox();
-            this.btnUndo = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lstOrder
@@ -139,15 +138,16 @@
             this.lstService.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.orderServicesIndex,
             this.orderServicesName,
-            this.orderServicesPrice});
+            this.orderServicesPrice,
+            this.columnHeader1});
             this.lstService.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.lstService.FullRowSelect = true;
             this.lstService.GridLines = true;
             this.lstService.HideSelection = false;
-            this.lstService.Location = new System.Drawing.Point(566, 12);
+            this.lstService.Location = new System.Drawing.Point(531, 12);
             this.lstService.Name = "lstService";
-            this.lstService.Size = new System.Drawing.Size(333, 231);
+            this.lstService.Size = new System.Drawing.Size(368, 231);
             this.lstService.TabIndex = 3;
             this.lstService.UseCompatibleStateImageBehavior = false;
             this.lstService.View = System.Windows.Forms.View.Details;
@@ -160,12 +160,17 @@
             // orderServicesName
             // 
             this.orderServicesName.Text = "Services Name";
-            this.orderServicesName.Width = 150;
+            this.orderServicesName.Width = 140;
             // 
             // orderServicesPrice
             // 
             this.orderServicesPrice.Text = "Services Price";
-            this.orderServicesPrice.Width = 150;
+            this.orderServicesPrice.Width = 120;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Quantity";
+            this.columnHeader1.Width = 75;
             // 
             // lblRoleError
             // 
@@ -203,7 +208,7 @@
             this.lblOrderStaff.AutoSize = true;
             this.lblOrderStaff.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblOrderStaff.Location = new System.Drawing.Point(12, 87);
+            this.lblOrderStaff.Location = new System.Drawing.Point(12, 94);
             this.lblOrderStaff.Name = "lblOrderStaff";
             this.lblOrderStaff.Size = new System.Drawing.Size(51, 19);
             this.lblOrderStaff.TabIndex = 32;
@@ -225,7 +230,7 @@
             this.lblOrderPrice.AutoSize = true;
             this.lblOrderPrice.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblOrderPrice.Location = new System.Drawing.Point(12, 174);
+            this.lblOrderPrice.Location = new System.Drawing.Point(12, 175);
             this.lblOrderPrice.Name = "lblOrderPrice";
             this.lblOrderPrice.Size = new System.Drawing.Size(55, 19);
             this.lblOrderPrice.TabIndex = 39;
@@ -237,7 +242,7 @@
             this.txtOrderPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOrderPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.txtOrderPrice.Location = new System.Drawing.Point(16, 196);
+            this.txtOrderPrice.Location = new System.Drawing.Point(16, 197);
             this.txtOrderPrice.Name = "txtOrderPrice";
             this.txtOrderPrice.Size = new System.Drawing.Size(282, 23);
             this.txtOrderPrice.TabIndex = 38;
@@ -270,7 +275,7 @@
             this.dtpOrderCheckOut.CalendarForeColor = System.Drawing.Color.White;
             this.dtpOrderCheckOut.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
             this.dtpOrderCheckOut.CalendarTitleForeColor = System.Drawing.Color.White;
-            this.dtpOrderCheckOut.Location = new System.Drawing.Point(16, 372);
+            this.dtpOrderCheckOut.Location = new System.Drawing.Point(16, 370);
             this.dtpOrderCheckOut.Name = "dtpOrderCheckOut";
             this.dtpOrderCheckOut.Size = new System.Drawing.Size(282, 27);
             this.dtpOrderCheckOut.TabIndex = 43;
@@ -280,31 +285,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.label1.Location = new System.Drawing.Point(12, 350);
+            this.label1.Location = new System.Drawing.Point(12, 348);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 19);
             this.label1.TabIndex = 42;
             this.label1.Text = "Check Out:";
-            // 
-            // chkStatetus
-            // 
-            this.chkStatetus.AutoSize = true;
-            this.chkStatetus.Location = new System.Drawing.Point(77, 436);
-            this.chkStatetus.Name = "chkStatetus";
-            this.chkStatetus.Size = new System.Drawing.Size(18, 17);
-            this.chkStatetus.TabIndex = 44;
-            this.chkStatetus.UseVisualStyleBackColor = true;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblStatus.Location = new System.Drawing.Point(12, 434);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(66, 19);
-            this.lblStatus.TabIndex = 45;
-            this.lblStatus.Text = "Status:";
             // 
             // btnSearch
             // 
@@ -327,27 +312,6 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 25;
-            this.btnDelete.Location = new System.Drawing.Point(16, 526);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(117, 43);
-            this.btnDelete.TabIndex = 46;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
@@ -359,7 +323,7 @@
             this.btnClear.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClear.IconSize = 25;
-            this.btnClear.Location = new System.Drawing.Point(181, 470);
+            this.btnClear.Location = new System.Drawing.Point(16, 526);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 43);
             this.btnClear.TabIndex = 48;
@@ -388,7 +352,7 @@
             this.lstRoom.HideSelection = false;
             this.lstRoom.Location = new System.Drawing.Point(315, 12);
             this.lstRoom.Name = "lstRoom";
-            this.lstRoom.Size = new System.Drawing.Size(231, 231);
+            this.lstRoom.Size = new System.Drawing.Size(188, 231);
             this.lstRoom.TabIndex = 49;
             this.lstRoom.UseCompatibleStateImageBehavior = false;
             this.lstRoom.View = System.Windows.Forms.View.Details;
@@ -401,12 +365,11 @@
             // orderRoom
             // 
             this.orderRoom.Text = "Room";
-            this.orderRoom.Width = 80;
             // 
             // orderRoomType
             // 
             this.orderRoomType.Text = "Room Type";
-            this.orderRoomType.Width = 120;
+            this.orderRoomType.Width = 95;
             // 
             // lblLog
             // 
@@ -423,31 +386,39 @@
             this.txtStaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStaff.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.txtStaff.Location = new System.Drawing.Point(16, 109);
+            this.txtStaff.Location = new System.Drawing.Point(16, 116);
             this.txtStaff.Name = "txtStaff";
             this.txtStaff.Size = new System.Drawing.Size(282, 23);
             this.txtStaff.TabIndex = 51;
             // 
-            // btnUndo
+            // label2
             // 
-            this.btnUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnUndo.FlatAppearance.BorderSize = 0;
-            this.btnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUndo.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUndo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnUndo.IconChar = FontAwesome.Sharp.IconChar.Rotate;
-            this.btnUndo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnUndo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUndo.IconSize = 25;
-            this.btnUndo.Location = new System.Drawing.Point(16, 470);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(117, 43);
-            this.btnUndo.TabIndex = 52;
-            this.btnUndo.Text = "Undo";
-            this.btnUndo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUndo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUndo.UseVisualStyleBackColor = false;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.label2.Location = new System.Drawing.Point(12, 435);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "Status:";
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.cbbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbbStatus.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Items.AddRange(new object[] {
+            "",
+            "Success",
+            "Booking",
+            "Active",
+            "Cancel"});
+            this.cbbStatus.Location = new System.Drawing.Point(16, 457);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(282, 27);
+            this.cbbStatus.TabIndex = 53;
             // 
             // FormOrder
             // 
@@ -455,15 +426,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
             this.ClientSize = new System.Drawing.Size(911, 581);
-            this.Controls.Add(this.btnUndo);
+            this.Controls.Add(this.cbbStatus);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtStaff);
             this.Controls.Add(this.lblLog);
             this.Controls.Add(this.lstRoom);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.chkStatetus);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.dtpOrderCheckOut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpOrderCheckIn);
@@ -514,10 +483,7 @@
         private System.Windows.Forms.DateTimePicker dtpOrderCheckIn;
         private System.Windows.Forms.DateTimePicker dtpOrderCheckOut;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkStatetus;
-        private System.Windows.Forms.Label lblStatus;
         private FontAwesome.Sharp.IconButton btnSearch;
-        private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnClear;
         private System.Windows.Forms.ListView lstRoom;
         private System.Windows.Forms.ColumnHeader orderRoomIndex;
@@ -525,6 +491,8 @@
         private System.Windows.Forms.ColumnHeader orderRoomType;
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.TextBox txtStaff;
-        private FontAwesome.Sharp.IconButton btnUndo;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbbStatus;
     }
 }

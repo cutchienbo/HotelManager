@@ -160,9 +160,9 @@
     <Compile Include="Validate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DP\DP.csproj">
+    <ProjectReference Include="..\DP\LIB.csproj">
       <Project>{4d555433-29a4-42c6-9fbf-5351e04456de}</Project>
-      <Name>DP</Name>
+      <Name>LIB</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{5d35b686-6ebc-4170-afb8-9b205caa9168}</Project>

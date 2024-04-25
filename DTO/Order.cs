@@ -15,6 +15,10 @@ namespace DTO
 
         public string customer_name { get; set; }
 
+        public int user_id { get; set; }
+
+        public int customer_id { get; set; }
+
         public string check_in_date { get; set; }
 
         public string check_out_date { get; set; }
@@ -33,6 +37,8 @@ namespace DTO
 
         public int roomInx { get; set; }
 
+        public string totalPrice { get; set; }
+
         public void addDataToOrder(DataRow row)
         {
             this.id = Convert.ToInt32(row["id"]);
@@ -44,12 +50,21 @@ namespace DTO
             this.price = Convert.ToInt32(row["price"]);
         }
 
-        public Dictionary<string, dynamic> getOrderToDictionary()
+        public Dictionary<string, dynamic> getOrderToDictionary(bool check = true)
         {
             Dictionary<string, dynamic> dic = new Dictionary<string, dynamic>();
 
-            dic.Add("customer_name", this.customer_name);
-            dic.Add("staff_name", this.user_name);
+            if(check)
+            {
+                dic.Add("customer_name", this.customer_name);
+                dic.Add("staff_name", this.user_name);
+            }
+            else
+            {
+                dic.Add("user_id", this.user_id);
+                dic.Add("customer_id", this.customer_id);
+            }
+
             dic.Add("price", this.price);
             dic.Add("check_in_date", this.check_in_date);
             dic.Add("check_out_date", this.check_out_date);

@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using GUI.ChildForms;
 using DTO;
+using GUI.Event;
+using GUI.ChildForms.HotelChildForm;
 
 namespace GUI
 {
@@ -20,6 +22,7 @@ namespace GUI
         private IconButton activeBtn;
         private Panel leftBtnBorder;
         private Form currentChildForm;
+        private User currentUser;
 
         public Manager(User user)
         {
@@ -39,7 +42,8 @@ namespace GUI
 
                 drawButton(first.ToUpper() + second);
             }
-            
+
+            this.currentUser = user;
         }
         
         public IconChar Hotel()
@@ -155,11 +159,38 @@ namespace GUI
             childForm.Show();
         }
 
+        public void hotelChildForm(object sender, OpenChildForm e)
+        {
+            switch (e.action)
+            {
+                case "create order":
+                    CreateOrderForm createOrder = new CreateOrderForm(e.paras, this.currentUser);
+                    this.openChildForm(createOrder);
+                    createOrder.handleOpenChildForm += hotelChildForm;
+                    break;
+                case "add service":
+                    AddServiceForm addService = new AddServiceForm(e.paras);
+                    this.openChildForm(addService);
+                    addService.handleOpenChildForm += hotelChildForm;
+                    break;
+                case "check out":
+                    CheckOutForm checkOut = new CheckOutForm(e.paras, e.ob);
+                    this.openChildForm(checkOut);
+                    checkOut.handleOpenChildForm += hotelChildForm;
+                    break;
+                case "back":
+                    this.btnHotel();
+                    break;
+            }
+        }
+
         public void btnHotel()
         {
-            Form childForm = new FormHotel();
+            FormHotel childForm = new FormHotel();
 
-            openChildForm(childForm);
+            openChildForm((Form)childForm);
+
+            childForm.handleOpenChildForm += hotelChildForm;
         }
 
         public void btnUser()

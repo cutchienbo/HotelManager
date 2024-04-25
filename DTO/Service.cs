@@ -19,6 +19,8 @@ namespace DTO
 
         public string image {  get; set; }
 
+        public int quantity { get; set; }
+
         public void addDataToService(DataRow row)
         {
             this.id = Convert.ToInt32(row["id"]);

@@ -7,8 +7,7 @@ using System.Data;
 using DTO;
 using System.Data.SqlClient;
 using System.Collections;
-using DP;
-
+using LIB;
 
 namespace DAL
 {
@@ -67,6 +66,7 @@ namespace DAL
 
                 service.name = row["name"].ToString();
                 service.price = Convert.ToInt32(row["price"]);
+                service.quantity = Convert.ToInt32(row["quantity"]);
 
                 services.Add(service);
             }

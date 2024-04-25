@@ -14,7 +14,7 @@ using BLL;
 using System.Windows.Media.TextFormatting;
 using System.IO;
 using System.Windows.Documents;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using LIB;
 
 namespace GUI.ChildForms
 {
@@ -68,7 +68,7 @@ namespace GUI.ChildForms
             {
                 "",
                 service.name,
-                service.price.ToString(),
+                Money.convertMoney(service.price.ToString()),
                 service.status == 0 ? "Disable" : "Active",
                 service.id.ToString(),
                 service.image
@@ -101,7 +101,7 @@ namespace GUI.ChildForms
             ptbServiceImage.Image = this.imgList.Images[Convert.ToInt32(item.SubItems[0].Text)];
 
             txtServiceName.Text = item.SubItems[1].Text;
-            txtServicePrice.Text = item.SubItems[2].Text;
+            txtServicePrice.Text = item.SubItems[2].Text.Replace(".", "");
             chkStatetus.Checked = item.SubItems[3].Text == "Active" ? true : false;
         }
 
@@ -188,7 +188,7 @@ namespace GUI.ChildForms
                     }
 
                     item.SubItems[1].Text = service.name;
-                    item.SubItems[2].Text = service.price.ToString();
+                    item.SubItems[2].Text = Money.convertMoney(service.price.ToString());
                     item.SubItems[3].Text = service.status == 1? "Active" : "Disable";
                 }
                 else
@@ -204,15 +204,18 @@ namespace GUI.ChildForms
 
             openFileDialog.Multiselect = false;
 
-            openFileDialog.ShowDialog();
+            DialogResult res = openFileDialog.ShowDialog();
 
             //openFileDialog.Filter = "*.pgn|*.jpg|*.jpeg";
 
-            this.newImage = openFileDialog.FileName;
+            if (res.ToString() == "OK")
+            {
+                this.newImage = openFileDialog.FileName;
 
-            this.newImgInx = this.imgList.Images.Add(System.Drawing.Image.FromFile(this.newImage), Color.Transparent);
+                this.newImgInx = this.imgList.Images.Add(System.Drawing.Image.FromFile(this.newImage), Color.Transparent);
 
-            ptbServiceImage.Image = this.imgList.Images[this.newImgInx];
+                ptbServiceImage.Image = this.imgList.Images[this.newImgInx];
+            }
         }
       
 

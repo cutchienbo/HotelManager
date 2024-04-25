@@ -7,7 +7,7 @@ using System.Data;
 using DTO;
 using System.Data.SqlClient;
 using System.Collections;
-using DP;
+using LIB;
 
 namespace DAL
 {

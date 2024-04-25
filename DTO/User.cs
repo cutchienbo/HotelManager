@@ -152,6 +152,19 @@ namespace DTO
             return data;
         }
 
+        public Dictionary<string, dynamic> getCustomerToDictionary()
+        {
+            Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
+
+            data.Add("id_code", this.id_code);
+            data.Add("full_name", this.full_name);
+            data.Add("phone_number", this.phone_number);
+            data.Add("email", this.email);
+            data.Add("address", this.address);
+
+            return data;
+        }
+
         public void addDataToUser(DataRow row)
         {
             this.id = (int)row["id"];
