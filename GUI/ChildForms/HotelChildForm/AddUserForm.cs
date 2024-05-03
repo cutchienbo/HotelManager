@@ -1,5 +1,4 @@
-﻿using GUI.Event;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,52 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using GUI.Event;
 using DTO;
+using BLL;
+using LIB;
 
 namespace GUI.ChildForms.HotelChildForm
 {
-    public partial class CreateOrderForm : Form
+    public partial class AddUserForm : Form
     {
-        private HotelBLL hotelBLL = new HotelBLL();
         public event EventHandler<OpenChildForm> handleOpenChildForm;
-        private string checkInTime;
-        private string checkOutTime;
-        private int price;
-        private string roomId;
+        private HotelBLL hotelBLL = new HotelBLL();
+        private List<Room> rooms;
         private User customer;
-        private User staff;
+        private int orderId;
 
-        public CreateOrderForm(dynamic paras, User staff)
+        public AddUserForm(dynamic paras)
         {
             InitializeComponent();
 
             this.init(paras);
-
-            this.staff = staff;
         }
 
-        private void init(string paras)
+        private void init(int orderId)
         {
-            string[] data = paras.Split('-');
+            this.rooms = this.hotelBLL.getOrderRoom(orderId);
 
-            this.roomId = data[0];
+            cbbRoomNumber.Items.Clear();
 
-            string checkInTime = data[2].Split('&')[0];
-            string checkOutTime = data[2].Split('&')[1];
+            foreach(Room room in this.rooms)
+            {
+                cbbRoomNumber.Items.Add(room.room_number);
+            }
 
-            this.checkInTime = checkInTime.Split('/')[1] + '/' + checkInTime.Split('/')[0] + '/' + DateTime.Now.Year;
-            this.checkOutTime = checkOutTime.Split('/')[1] + '/' + checkOutTime.Split('/')[0] + '/' + DateTime.Now.Year;
+            cbbRoomNumber.SelectedIndex = 0;
 
-            txtRoomNumber.Text = data[1];
-
-            dtpCheckInTime.Value = DateTime.Parse(this.checkInTime);
-            dtpCheckOutTime.Value = DateTime.Parse(this.checkOutTime);
-
-            this.price = Convert.ToInt32(data[3]);
+            this.orderId = orderId;
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             handleOpenChildForm?.Invoke(this, new OpenChildForm("back"));
         }
@@ -67,7 +59,7 @@ namespace GUI.ChildForms.HotelChildForm
             lblEmailError.Text = "";
         }
 
-        private void btnCreateOrder_Click(object sender, EventArgs e)
+        private void btnAddUser_Click(object sender, EventArgs e)
         {
             this.resetErrorLog();
 
@@ -128,11 +120,11 @@ namespace GUI.ChildForms.HotelChildForm
                 }
             }
 
-            if(check == true)
+            if (check == true)
             {
                 int customerId = 0;
 
-                if(this.customer == null)
+                if (this.customer == null)
                 {
                     User customer = new User();
 
@@ -149,34 +141,31 @@ namespace GUI.ChildForms.HotelChildForm
                     customerId = this.customer.sId;
                 }
 
-                Order order = new Order();
+                int id = this.hotelBLL.insertOrderUser(this.orderId, cbbRoomNumber.Text, customerId);
 
-                order.user_id = this.staff.sId;
-                order.customer_id = customerId;
-                order.check_in_date = this.checkInTime;
-                order.check_out_date = this.checkOutTime;
-                order.price = this.price;
-
-                int orderId = this.hotelBLL.insertOrder(order);
-
-                string[] roomIdx = this.roomId.Split('+');
-
-                foreach(string id in roomIdx)
+                if(id == 0)
                 {
-                    this.hotelBLL.insertOrderRoom(orderId, Convert.ToInt32(id));
+                    lblLog.Text = "User is existed in order !";
+                    lblLog.ForeColor = Color.Red;
+                }
+                else
+                {
+                    lblLog.Text = "Add user success !";
+                    lblLog.ForeColor = Color.Lime;
                 }
 
-                handleOpenChildForm?.Invoke(this, new OpenChildForm("back"));
+
+                this.customer = null;
             }
         }
 
         private void txtIdCode_TextChanged(object sender, EventArgs e)
         {
-            if(txtIdCode.Text.Length == 12)
+            if (txtIdCode.Text.Length == 12)
             {
                 this.customer = this.hotelBLL.getCustomerByIdCode(txtIdCode.Text);
 
-                if(customer != null)
+                if (customer != null)
                 {
                     MessageBox.Show("Customers who have used the services of the hotel !");
 
@@ -186,11 +175,6 @@ namespace GUI.ChildForms.HotelChildForm
                     txtAddress.Text = this.customer.sAddress;
                 }
             }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

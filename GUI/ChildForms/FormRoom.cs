@@ -178,8 +178,8 @@ namespace GUI.ChildForms
                 ValidateItem roomNumber = new ValidateItem(
                     lblRoomNumberError,
                     txtRoomNumber.Text,
-                    @"empty | pattern:[0-9]+ | existed:room_number-room",
-                    @"Room number can not empty ! | Accept number only ! | Room number is existed !"
+                    @"empty | pattern:[0-9]+",
+                    @"Room number can not empty ! | Accept number only !"
                 );
 
                 validateItems.Add(roomNumber);

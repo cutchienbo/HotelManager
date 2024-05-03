@@ -95,3 +95,4 @@ C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChild
 C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChildForm.CheckOutForm.resources
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DevExpress.Data.v23.2.dll
 C:\Users\ADMIN\source\repos\HotelManager\GUI\bin\Debug\DevExpress.Data.v23.2.xml
+C:\Users\ADMIN\source\repos\HotelManager\GUI\obj\Debug\GUI.ChildForms.HotelChildForm.AddUserForm.resources

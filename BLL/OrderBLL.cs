@@ -41,5 +41,15 @@ namespace BLL
         {
             return this.orderDAL.undoOrder(id);
         }
+
+        public List<User> getOrderUser(int orderId)
+        {
+            return this.orderDAL.getOrderUser(orderId);
+        }
+
+        public List<User> getOrderRoomUser(int orderId, int roomId)
+        {
+            return this.orderDAL.getOrderRoomUser(orderId, roomId);
+        }
     }
 }

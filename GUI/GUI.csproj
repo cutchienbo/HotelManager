@@ -219,6 +219,12 @@
     <Compile Include="ChildForms\HotelChildForm\AddServiceForm.Designer.cs">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\HotelChildForm\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\HotelChildForm\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForms\HotelChildForm\CheckOutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\HotelChildForm\AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\HotelChildForm\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\HotelChildForm\CheckOutForm.resx">
       <DependentUpon>CheckOutForm.cs</DependentUpon>

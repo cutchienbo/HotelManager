@@ -21,6 +21,8 @@ namespace DTO
         private int statetus;
         private List<Permission> permissions;
 
+        public Room room {  get; set; }
+
         public int sId {
             get
             {

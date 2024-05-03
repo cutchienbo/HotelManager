@@ -58,6 +58,7 @@
             this.orderRoomIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderRoomType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblLog = new System.Windows.Forms.Label();
             this.txtStaff = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,9 +86,9 @@
             this.lstOrder.FullRowSelect = true;
             this.lstOrder.GridLines = true;
             this.lstOrder.HideSelection = false;
-            this.lstOrder.Location = new System.Drawing.Point(315, 262);
+            this.lstOrder.Location = new System.Drawing.Point(280, 262);
             this.lstOrder.Name = "lstOrder";
-            this.lstOrder.Size = new System.Drawing.Size(584, 307);
+            this.lstOrder.Size = new System.Drawing.Size(619, 307);
             this.lstOrder.TabIndex = 2;
             this.lstOrder.UseCompatibleStateImageBehavior = false;
             this.lstOrder.View = System.Windows.Forms.View.Details;
@@ -145,12 +146,13 @@
             this.lstService.FullRowSelect = true;
             this.lstService.GridLines = true;
             this.lstService.HideSelection = false;
-            this.lstService.Location = new System.Drawing.Point(531, 12);
+            this.lstService.Location = new System.Drawing.Point(546, 12);
             this.lstService.Name = "lstService";
-            this.lstService.Size = new System.Drawing.Size(368, 231);
+            this.lstService.Size = new System.Drawing.Size(353, 231);
             this.lstService.TabIndex = 3;
             this.lstService.UseCompatibleStateImageBehavior = false;
             this.lstService.View = System.Windows.Forms.View.Details;
+            this.lstService.SelectedIndexChanged += new System.EventHandler(this.lstService_SelectedIndexChanged);
             // 
             // orderServicesIndex
             // 
@@ -160,7 +162,7 @@
             // orderServicesName
             // 
             this.orderServicesName.Text = "Services Name";
-            this.orderServicesName.Width = 140;
+            this.orderServicesName.Width = 125;
             // 
             // orderServicesPrice
             // 
@@ -200,7 +202,7 @@
             this.txtCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.txtCustomer.Location = new System.Drawing.Point(16, 34);
             this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.Size = new System.Drawing.Size(282, 23);
+            this.txtCustomer.Size = new System.Drawing.Size(245, 23);
             this.txtCustomer.TabIndex = 33;
             // 
             // lblOrderStaff
@@ -208,7 +210,7 @@
             this.lblOrderStaff.AutoSize = true;
             this.lblOrderStaff.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblOrderStaff.Location = new System.Drawing.Point(12, 94);
+            this.lblOrderStaff.Location = new System.Drawing.Point(12, 100);
             this.lblOrderStaff.Name = "lblOrderStaff";
             this.lblOrderStaff.Size = new System.Drawing.Size(51, 19);
             this.lblOrderStaff.TabIndex = 32;
@@ -230,7 +232,7 @@
             this.lblOrderPrice.AutoSize = true;
             this.lblOrderPrice.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblOrderPrice.Location = new System.Drawing.Point(12, 175);
+            this.lblOrderPrice.Location = new System.Drawing.Point(12, 180);
             this.lblOrderPrice.Name = "lblOrderPrice";
             this.lblOrderPrice.Size = new System.Drawing.Size(55, 19);
             this.lblOrderPrice.TabIndex = 39;
@@ -242,9 +244,9 @@
             this.txtOrderPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOrderPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.txtOrderPrice.Location = new System.Drawing.Point(16, 197);
+            this.txtOrderPrice.Location = new System.Drawing.Point(16, 202);
             this.txtOrderPrice.Name = "txtOrderPrice";
-            this.txtOrderPrice.Size = new System.Drawing.Size(282, 23);
+            this.txtOrderPrice.Size = new System.Drawing.Size(245, 23);
             this.txtOrderPrice.TabIndex = 38;
             // 
             // lblOrderCheckIn
@@ -252,7 +254,7 @@
             this.lblOrderCheckIn.AutoSize = true;
             this.lblOrderCheckIn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblOrderCheckIn.Location = new System.Drawing.Point(12, 262);
+            this.lblOrderCheckIn.Location = new System.Drawing.Point(12, 268);
             this.lblOrderCheckIn.Name = "lblOrderCheckIn";
             this.lblOrderCheckIn.Size = new System.Drawing.Size(83, 19);
             this.lblOrderCheckIn.TabIndex = 40;
@@ -265,9 +267,9 @@
             this.dtpOrderCheckIn.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.dtpOrderCheckIn.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.dtpOrderCheckIn.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.dtpOrderCheckIn.Location = new System.Drawing.Point(16, 284);
+            this.dtpOrderCheckIn.Location = new System.Drawing.Point(16, 290);
             this.dtpOrderCheckIn.Name = "dtpOrderCheckIn";
-            this.dtpOrderCheckIn.Size = new System.Drawing.Size(282, 27);
+            this.dtpOrderCheckIn.Size = new System.Drawing.Size(245, 27);
             this.dtpOrderCheckIn.TabIndex = 41;
             // 
             // dtpOrderCheckOut
@@ -277,8 +279,9 @@
             this.dtpOrderCheckOut.CalendarTitleForeColor = System.Drawing.Color.White;
             this.dtpOrderCheckOut.Location = new System.Drawing.Point(16, 370);
             this.dtpOrderCheckOut.Name = "dtpOrderCheckOut";
-            this.dtpOrderCheckOut.Size = new System.Drawing.Size(282, 27);
+            this.dtpOrderCheckOut.Size = new System.Drawing.Size(245, 27);
             this.dtpOrderCheckOut.TabIndex = 43;
+            this.dtpOrderCheckOut.ValueChanged += new System.EventHandler(this.dtpOrderCheckOut_ValueChanged);
             // 
             // label1
             // 
@@ -302,7 +305,7 @@
             this.btnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 25;
-            this.btnSearch.Location = new System.Drawing.Point(181, 526);
+            this.btnSearch.Location = new System.Drawing.Point(144, 526);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(117, 43);
             this.btnSearch.TabIndex = 47;
@@ -344,18 +347,20 @@
             this.lstRoom.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.orderRoomIndex,
             this.orderRoom,
-            this.orderRoomType});
+            this.orderRoomType,
+            this.columnHeader2});
             this.lstRoom.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.lstRoom.FullRowSelect = true;
             this.lstRoom.GridLines = true;
             this.lstRoom.HideSelection = false;
-            this.lstRoom.Location = new System.Drawing.Point(315, 12);
+            this.lstRoom.Location = new System.Drawing.Point(280, 12);
             this.lstRoom.Name = "lstRoom";
-            this.lstRoom.Size = new System.Drawing.Size(188, 231);
+            this.lstRoom.Size = new System.Drawing.Size(260, 231);
             this.lstRoom.TabIndex = 49;
             this.lstRoom.UseCompatibleStateImageBehavior = false;
             this.lstRoom.View = System.Windows.Forms.View.Details;
+            this.lstRoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstRoom_MouseDown);
             // 
             // orderRoomIndex
             // 
@@ -368,8 +373,13 @@
             // 
             // orderRoomType
             // 
-            this.orderRoomType.Text = "Room Type";
-            this.orderRoomType.Width = 95;
+            this.orderRoomType.Text = "RT";
+            this.orderRoomType.Width = 85;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Customer";
+            this.columnHeader2.Width = 85;
             // 
             // lblLog
             // 
@@ -386,9 +396,9 @@
             this.txtStaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStaff.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.txtStaff.Location = new System.Drawing.Point(16, 116);
+            this.txtStaff.Location = new System.Drawing.Point(16, 122);
             this.txtStaff.Name = "txtStaff";
-            this.txtStaff.Size = new System.Drawing.Size(282, 23);
+            this.txtStaff.Size = new System.Drawing.Size(245, 23);
             this.txtStaff.TabIndex = 51;
             // 
             // label2
@@ -417,7 +427,7 @@
             "Cancel"});
             this.cbbStatus.Location = new System.Drawing.Point(16, 457);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(282, 27);
+            this.cbbStatus.Size = new System.Drawing.Size(245, 27);
             this.cbbStatus.TabIndex = 53;
             // 
             // FormOrder
@@ -494,5 +504,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbStatus;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

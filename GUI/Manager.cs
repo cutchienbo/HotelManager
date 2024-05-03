@@ -178,6 +178,11 @@ namespace GUI
                     this.openChildForm(checkOut);
                     checkOut.handleOpenChildForm += hotelChildForm;
                     break;
+                case "add user":
+                    AddUserForm addUser = new AddUserForm(e.paras);
+                    this.openChildForm(addUser);
+                    addUser.handleOpenChildForm += hotelChildForm;
+                    break;
                 case "back":
                     this.btnHotel();
                     break;

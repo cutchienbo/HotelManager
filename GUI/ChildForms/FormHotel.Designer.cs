@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.RoomNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Previous5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Previous4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,15 +46,10 @@
             this.Next8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Next9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstHotel = new System.Windows.Forms.ListView();
-            this.btnDeleteService = new FontAwesome.Sharp.IconButton();
             this.dtpSystemTime = new System.Windows.Forms.DateTimePicker();
             this.txtRoomNumber = new System.Windows.Forms.TextBox();
             this.lblRoomStatus = new System.Windows.Forms.Label();
             this.lblRoomNum = new System.Windows.Forms.Label();
-            this.btnCreateOrder = new FontAwesome.Sharp.IconButton();
-            this.btnCheckOut = new FontAwesome.Sharp.IconButton();
-            this.btnAddService = new FontAwesome.Sharp.IconButton();
-            this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.lstService = new System.Windows.Forms.ListView();
             this.orderServicesIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderServicesName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,7 +61,7 @@
             this.lblStaffName = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ttDataTimePickerTime = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -73,13 +69,32 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.lblLog = new System.Windows.Forms.Label();
-            this.btnCheckIn = new FontAwesome.Sharp.IconButton();
             this.cbbRoomStatus = new System.Windows.Forms.ComboBox();
             this.lblRoomType = new System.Windows.Forms.Label();
             this.cbbRoomType = new System.Windows.Forms.ComboBox();
             this.btnSuccess = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.ttEmpty = new System.Windows.Forms.ToolTip(this.components);
+            this.ttFinishOrder = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActive = new System.Windows.Forms.ToolTip(this.components);
+            this.ttBooking = new System.Windows.Forms.ToolTip(this.components);
+            this.ttOverTime = new System.Windows.Forms.ToolTip(this.components);
+            this.ttLate = new System.Windows.Forms.ToolTip(this.components);
+            this.ttMaintaining = new System.Windows.Forms.ToolTip(this.components);
+            this.ttCleaning = new System.Windows.Forms.ToolTip(this.components);
+            this.ttPastTime = new System.Windows.Forms.ToolTip(this.components);
+            this.ttDTPTime = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalUser = new System.Windows.Forms.TextBox();
+            this.btnInfoUser = new FontAwesome.Sharp.IconButton();
+            this.btnAddUser = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnAddService = new FontAwesome.Sharp.IconButton();
+            this.btnCheckOut = new FontAwesome.Sharp.IconButton();
+            this.btnCheckIn = new FontAwesome.Sharp.IconButton();
+            this.btnCreateOrder = new FontAwesome.Sharp.IconButton();
+            this.btnDeleteService = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // RoomNumber
@@ -203,7 +218,7 @@
             this.Next8,
             this.Next9});
             this.lstHotel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstHotel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.lstHotel.ForeColor = System.Drawing.Color.White;
             this.lstHotel.GridLines = true;
             this.lstHotel.HideSelection = false;
             this.lstHotel.HoverSelection = true;
@@ -215,26 +230,6 @@
             this.lstHotel.UseCompatibleStateImageBehavior = false;
             this.lstHotel.View = System.Windows.Forms.View.Details;
             this.lstHotel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstHotel_MouseDown);
-            // 
-            // btnDeleteService
-            // 
-            this.btnDeleteService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
-            this.btnDeleteService.FlatAppearance.BorderSize = 0;
-            this.btnDeleteService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteService.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnDeleteService.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
-            this.btnDeleteService.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnDeleteService.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeleteService.IconSize = 30;
-            this.btnDeleteService.Location = new System.Drawing.Point(876, 7);
-            this.btnDeleteService.Name = "btnDeleteService";
-            this.btnDeleteService.Size = new System.Drawing.Size(42, 39);
-            this.btnDeleteService.TabIndex = 42;
-            this.btnDeleteService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteService.UseVisualStyleBackColor = false;
-            this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
             // 
             // dtpSystemTime
             // 
@@ -249,6 +244,7 @@
             // 
             this.txtRoomNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.txtRoomNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRoomNumber.Enabled = false;
             this.txtRoomNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.txtRoomNumber.Location = new System.Drawing.Point(146, 300);
@@ -277,90 +273,6 @@
             this.lblRoomNum.Size = new System.Drawing.Size(111, 18);
             this.lblRoomNum.TabIndex = 49;
             this.lblRoomNum.Text = "Room number:";
-            // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnCreateOrder.FlatAppearance.BorderSize = 0;
-            this.btnCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOrder.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCreateOrder.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnCreateOrder.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCreateOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCreateOrder.IconSize = 30;
-            this.btnCreateOrder.Location = new System.Drawing.Point(395, 452);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(160, 51);
-            this.btnCreateOrder.TabIndex = 58;
-            this.btnCreateOrder.Text = "Create order";
-            this.btnCreateOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateOrder.UseVisualStyleBackColor = false;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
-            // 
-            // btnCheckOut
-            // 
-            this.btnCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnCheckOut.FlatAppearance.BorderSize = 0;
-            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckOut.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCheckOut.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.btnCheckOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCheckOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCheckOut.IconSize = 30;
-            this.btnCheckOut.Location = new System.Drawing.Point(207, 525);
-            this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(160, 51);
-            this.btnCheckOut.TabIndex = 60;
-            this.btnCheckOut.Text = "Check out";
-            this.btnCheckOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCheckOut.UseVisualStyleBackColor = false;
-            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
-            // 
-            // btnAddService
-            // 
-            this.btnAddService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnAddService.FlatAppearance.BorderSize = 0;
-            this.btnAddService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddService.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnAddService.IconChar = FontAwesome.Sharp.IconChar.BellConcierge;
-            this.btnAddService.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnAddService.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddService.IconSize = 30;
-            this.btnAddService.Location = new System.Drawing.Point(395, 525);
-            this.btnAddService.Name = "btnAddService";
-            this.btnAddService.Size = new System.Drawing.Size(160, 51);
-            this.btnAddService.TabIndex = 61;
-            this.btnAddService.Text = "Add Service";
-            this.btnAddService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddService.UseVisualStyleBackColor = false;
-            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.TimesSquare;
-            this.btnCancel.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel.IconSize = 30;
-            this.btnCancel.Location = new System.Drawing.Point(15, 525);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(160, 51);
-            this.btnCancel.TabIndex = 63;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lstService
             // 
@@ -411,11 +323,12 @@
             // 
             this.txtCustomerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.txtCustomerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCustomerName.Enabled = false;
             this.txtCustomerName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
             this.txtCustomerName.Location = new System.Drawing.Point(18, 363);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(254, 23);
+            this.txtCustomerName.Size = new System.Drawing.Size(180, 23);
             this.txtCustomerName.TabIndex = 66;
             // 
             // lblCustomerName
@@ -433,11 +346,12 @@
             // 
             this.txtStaffName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
             this.txtStaffName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStaffName.Enabled = false;
             this.txtStaffName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaffName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.txtStaffName.Location = new System.Drawing.Point(302, 363);
+            this.txtStaffName.Location = new System.Drawing.Point(219, 362);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(253, 23);
+            this.txtStaffName.Size = new System.Drawing.Size(180, 23);
             this.txtStaffName.TabIndex = 68;
             // 
             // lblStaffName
@@ -445,7 +359,7 @@
             this.lblStaffName.AutoSize = true;
             this.lblStaffName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.lblStaffName.Location = new System.Drawing.Point(299, 341);
+            this.lblStaffName.Location = new System.Drawing.Point(216, 341);
             this.lblStaffName.Name = "lblStaffName";
             this.lblStaffName.Size = new System.Drawing.Size(87, 18);
             this.lblStaffName.TabIndex = 67;
@@ -459,8 +373,8 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(23, 23);
             this.button1.TabIndex = 75;
+            this.ttEmpty.SetToolTip(this.button1, "Empty Cell - The cell can click");
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -470,19 +384,19 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(23, 23);
             this.button2.TabIndex = 76;
+            this.ttLate.SetToolTip(this.button2, "Late Time - The order check in late");
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // ttDataTimePickerTime
             // 
-            this.button3.BackColor = System.Drawing.Color.Brown;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(277, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(23, 23);
-            this.button3.TabIndex = 77;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ttDataTimePickerTime.BackColor = System.Drawing.Color.Brown;
+            this.ttDataTimePickerTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ttDataTimePickerTime.Location = new System.Drawing.Point(277, 12);
+            this.ttDataTimePickerTime.Name = "ttDataTimePickerTime";
+            this.ttDataTimePickerTime.Size = new System.Drawing.Size(23, 23);
+            this.ttDataTimePickerTime.TabIndex = 77;
+            this.ttDTPTime.SetToolTip(this.ttDataTimePickerTime, "DataTimePicker Time");
+            this.ttDataTimePickerTime.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -492,8 +406,8 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(23, 23);
             this.button4.TabIndex = 78;
+            this.ttBooking.SetToolTip(this.button4, "Booking Order");
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -503,8 +417,8 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(23, 23);
             this.button5.TabIndex = 79;
+            this.ttMaintaining.SetToolTip(this.button5, "Maintaning Room");
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -514,8 +428,8 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(23, 23);
             this.button6.TabIndex = 80;
+            this.ttPastTime.SetToolTip(this.button6, "Past Time");
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -525,8 +439,8 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(23, 23);
             this.button7.TabIndex = 81;
+            this.ttCleaning.SetToolTip(this.button7, "Cleaning Room");
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -536,8 +450,8 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(23, 23);
             this.button8.TabIndex = 82;
+            this.ttOverTime.SetToolTip(this.button8, "Over Time - The order check out late");
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -547,39 +461,18 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(23, 23);
             this.button9.TabIndex = 83;
+            this.ttActive.SetToolTip(this.button9, "Active Order");
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // lblLog
             // 
             this.lblLog.AutoSize = true;
             this.lblLog.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLog.ForeColor = System.Drawing.Color.Red;
-            this.lblLog.Location = new System.Drawing.Point(13, 452);
+            this.lblLog.Location = new System.Drawing.Point(392, 418);
             this.lblLog.Name = "lblLog";
             this.lblLog.Size = new System.Drawing.Size(0, 17);
             this.lblLog.TabIndex = 84;
-            // 
-            // btnCheckIn
-            // 
-            this.btnCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
-            this.btnCheckIn.FlatAppearance.BorderSize = 0;
-            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckIn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCheckIn.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
-            this.btnCheckIn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btnCheckIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCheckIn.IconSize = 30;
-            this.btnCheckIn.Location = new System.Drawing.Point(207, 452);
-            this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(160, 51);
-            this.btnCheckIn.TabIndex = 59;
-            this.btnCheckIn.Text = "Check in";
-            this.btnCheckIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCheckIn.UseVisualStyleBackColor = false;
-            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // cbbRoomStatus
             // 
@@ -630,8 +523,8 @@
             this.btnSuccess.Name = "btnSuccess";
             this.btnSuccess.Size = new System.Drawing.Size(23, 23);
             this.btnSuccess.TabIndex = 87;
+            this.ttFinishOrder.SetToolTip(this.btnSuccess, "Finish Order");
             this.btnSuccess.UseVisualStyleBackColor = false;
-            this.btnSuccess.Click += new System.EventHandler(this.btnSuccess_Click);
             // 
             // label1
             // 
@@ -655,12 +548,209 @@
             this.lblTotalPrice.TabIndex = 89;
             this.lblTotalPrice.Text = "0VND";
             // 
+            // ttEmpty
+            // 
+            this.ttEmpty.AutomaticDelay = 100;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.label2.Location = new System.Drawing.Point(413, 341);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 18);
+            this.label2.TabIndex = 91;
+            this.label2.Text = "Total user:";
+            // 
+            // txtTotalUser
+            // 
+            this.txtTotalUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.txtTotalUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalUser.Enabled = false;
+            this.txtTotalUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.txtTotalUser.Location = new System.Drawing.Point(416, 363);
+            this.txtTotalUser.Name = "txtTotalUser";
+            this.txtTotalUser.Size = new System.Drawing.Size(80, 23);
+            this.txtTotalUser.TabIndex = 92;
+            // 
+            // btnInfoUser
+            // 
+            this.btnInfoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnInfoUser.FlatAppearance.BorderSize = 0;
+            this.btnInfoUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoUser.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnInfoUser.IconChar = FontAwesome.Sharp.IconChar.Info;
+            this.btnInfoUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnInfoUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInfoUser.IconSize = 15;
+            this.btnInfoUser.Location = new System.Drawing.Point(502, 363);
+            this.btnInfoUser.Name = "btnInfoUser";
+            this.btnInfoUser.Size = new System.Drawing.Size(53, 23);
+            this.btnInfoUser.TabIndex = 93;
+            this.btnInfoUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfoUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInfoUser.UseVisualStyleBackColor = false;
+            this.btnInfoUser.Click += new System.EventHandler(this.btnInfoUser_Click);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnAddUser.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.btnAddUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnAddUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddUser.IconSize = 30;
+            this.btnAddUser.Location = new System.Drawing.Point(15, 452);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(160, 51);
+            this.btnAddUser.TabIndex = 90;
+            this.btnAddUser.Text = "Add user";
+            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.TimesSquare;
+            this.btnCancel.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.IconSize = 30;
+            this.btnCancel.Location = new System.Drawing.Point(15, 525);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(160, 51);
+            this.btnCancel.TabIndex = 63;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAddService
+            // 
+            this.btnAddService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnAddService.FlatAppearance.BorderSize = 0;
+            this.btnAddService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddService.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnAddService.IconChar = FontAwesome.Sharp.IconChar.BellConcierge;
+            this.btnAddService.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnAddService.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddService.IconSize = 30;
+            this.btnAddService.Location = new System.Drawing.Point(395, 525);
+            this.btnAddService.Name = "btnAddService";
+            this.btnAddService.Size = new System.Drawing.Size(160, 51);
+            this.btnAddService.TabIndex = 61;
+            this.btnAddService.Text = "Add Service";
+            this.btnAddService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddService.UseVisualStyleBackColor = false;
+            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
+            // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnCheckOut.FlatAppearance.BorderSize = 0;
+            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOut.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCheckOut.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.btnCheckOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCheckOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCheckOut.IconSize = 30;
+            this.btnCheckOut.Location = new System.Drawing.Point(207, 525);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(160, 51);
+            this.btnCheckOut.TabIndex = 60;
+            this.btnCheckOut.Text = "Check out";
+            this.btnCheckOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckOut.UseVisualStyleBackColor = false;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
+            // 
+            // btnCheckIn
+            // 
+            this.btnCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnCheckIn.FlatAppearance.BorderSize = 0;
+            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckIn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCheckIn.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
+            this.btnCheckIn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCheckIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCheckIn.IconSize = 30;
+            this.btnCheckIn.Location = new System.Drawing.Point(207, 452);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(160, 51);
+            this.btnCheckIn.TabIndex = 59;
+            this.btnCheckIn.Text = "Check in";
+            this.btnCheckIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckIn.UseVisualStyleBackColor = false;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
+            // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181)))));
+            this.btnCreateOrder.FlatAppearance.BorderSize = 0;
+            this.btnCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateOrder.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCreateOrder.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnCreateOrder.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnCreateOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCreateOrder.IconSize = 30;
+            this.btnCreateOrder.Location = new System.Drawing.Point(395, 452);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Size = new System.Drawing.Size(160, 51);
+            this.btnCreateOrder.TabIndex = 58;
+            this.btnCreateOrder.Text = "Create order";
+            this.btnCreateOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateOrder.UseVisualStyleBackColor = false;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            // 
+            // btnDeleteService
+            // 
+            this.btnDeleteService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
+            this.btnDeleteService.FlatAppearance.BorderSize = 0;
+            this.btnDeleteService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteService.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnDeleteService.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
+            this.btnDeleteService.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btnDeleteService.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDeleteService.IconSize = 30;
+            this.btnDeleteService.Location = new System.Drawing.Point(876, 7);
+            this.btnDeleteService.Name = "btnDeleteService";
+            this.btnDeleteService.Size = new System.Drawing.Size(42, 39);
+            this.btnDeleteService.TabIndex = 42;
+            this.btnDeleteService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteService.UseVisualStyleBackColor = false;
+            this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
+            // 
             // FormHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(226)))), ((int)(((byte)(220)))));
             this.ClientSize = new System.Drawing.Size(916, 591);
+            this.Controls.Add(this.btnInfoUser);
+            this.Controls.Add(this.txtTotalUser);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSuccess);
@@ -673,7 +763,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ttDataTimePickerTime);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtStaffName);
@@ -742,7 +832,7 @@
         private System.Windows.Forms.Label lblStaffName;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ttDataTimePickerTime;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -758,5 +848,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ToolTip ttEmpty;
+        private System.Windows.Forms.ToolTip ttFinishOrder;
+        private System.Windows.Forms.ToolTip ttActive;
+        private System.Windows.Forms.ToolTip ttBooking;
+        private System.Windows.Forms.ToolTip ttOverTime;
+        private System.Windows.Forms.ToolTip ttLate;
+        private System.Windows.Forms.ToolTip ttMaintaining;
+        private System.Windows.Forms.ToolTip ttCleaning;
+        private System.Windows.Forms.ToolTip ttPastTime;
+        private System.Windows.Forms.ToolTip ttDTPTime;
+        private FontAwesome.Sharp.IconButton btnAddUser;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTotalUser;
+        private FontAwesome.Sharp.IconButton btnInfoUser;
     }
 }

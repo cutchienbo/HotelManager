@@ -240,5 +240,68 @@ namespace DAL
 
             return rooms;
         }
+
+        public List<User> getOrderUser(int orderId)
+        {
+            DB.addParam("order_id", orderId);
+
+            DataTable res = DB.queryExecuteAdapter("get_total_order_user");
+
+            List<User> users = new List<User>();
+
+            foreach(DataRow row in res.Rows)
+            {
+                User user = new User();
+
+                user.addDataToCustomer(row);
+
+                Room room = new Room();
+
+                room.room_number = row["room_number"].ToString();
+
+                user.room = room;
+
+                users.Add(user);
+            }
+
+            return users;
+        }
+
+        public List<Room> getOrderRoom(int orderId)
+        {
+            DB.addParam("order_id", orderId);
+
+            DataTable res = DB.queryExecuteAdapter("get_order_room");
+
+            List<Room> rooms = new List<Room>();
+
+            foreach (DataRow row in res.Rows)
+            {
+                Room room = new Room();
+
+                room.room_number = row["room_number"].ToString();
+                room.id = Convert.ToInt32(row["id"]);
+
+                rooms.Add(room);
+            }
+
+            return rooms;
+        }
+
+        public int insertOrderUser(int orderId, string roomNumber, int userId)
+        {
+            DB.addParam("order_id", orderId);
+            DB.addParam("room_number", roomNumber);
+            DB.addParam("user_id", userId);
+
+            DataTable res = DB.queryExecuteAdapter("insert_order_user");
+
+            if(res.Rows.Count > 0)
+            {
+                return Convert.ToInt32(res.Rows[0][0]);
+            }
+
+            return -1;
+        }
     }
 }

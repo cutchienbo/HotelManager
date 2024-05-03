@@ -81,5 +81,20 @@ namespace BLL
         {
             return this.hotelDAL.getRoomByOrderId(orderId);
         }
+
+        public List<User> getOrderUser(int orderId)
+        {
+            return this.hotelDAL.getOrderUser(orderId);
+        }
+
+        public List<Room> getOrderRoom(int orderId)
+        {
+            return this.hotelDAL.getOrderRoom(orderId);
+        }
+
+        public int insertOrderUser(int orderId, string roomNumber, int userId)
+        {
+            return this.hotelDAL.insertOrderUser(orderId, roomNumber, userId);
+        }
     }
 }

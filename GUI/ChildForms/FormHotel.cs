@@ -289,11 +289,6 @@ namespace GUI.ChildForms
             lblTotalPrice.Text = "0VND";
         }
 
-        private void showColorInfo(string info)
-        {
-            MessageBox.Show(info);
-        }
-
         private void addServiceToListView(List<Service> services)
         {
             for (int i = 0; i < services.Count; i++)
@@ -350,6 +345,13 @@ namespace GUI.ChildForms
                                 {
                                     order.totalPrice = this.hotelBLL.getTotalOrderPrice(orderId);
                                 }
+
+                                if(order.users == null)
+                                {
+                                    order.users = this.hotelBLL.getOrderUser(orderId);
+                                }
+
+                                txtTotalUser.Text = (order.users.Count).ToString();
 
                                 lblTotalPrice.Text = Money.convertMoney(order.totalPrice) + "VND";
 
@@ -410,9 +412,11 @@ namespace GUI.ChildForms
 
                                         for (int j = this.startCellIdx; j <= this.endCellIdx; j++)
                                         {
-                                            if(lstHotel.Items[i].SubItems[j].BackColor != Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181))))) && check)
+                                            if(lstHotel.Items[i].SubItems[j].BackColor != Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181))))) && lstHotel.Items[i].SubItems[j].BackColor != Color.Brown && check)
                                             {
                                                 check = false;
+
+                                                j = this.startCellIdx;
                                             }
 
                                             lstHotel.Items[i].SubItems[j].Text = check ? "Tick" : "";
@@ -478,7 +482,10 @@ namespace GUI.ChildForms
             {
                 for (int j = this.startCellIdx; j <= this.endCellIdx; j++)
                 {
-                    lstHotel.Items[i].SubItems[j].Text = "";
+                    if (lstHotel.Items[i].SubItems[j].BackColor == Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(178)))), ((int)(((byte)(181))))) || lstHotel.Items[i].SubItems[j].BackColor == Color.Brown)
+                    {
+                        lstHotel.Items[i].SubItems[j].Text = "";
+                    }
                 }
             }
 
@@ -495,7 +502,6 @@ namespace GUI.ChildForms
 
         private void cbbRoomStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
             int roomId = this.roomSelected.id;
 
             int status = 0;
@@ -560,56 +566,6 @@ namespace GUI.ChildForms
             {
                 this.showLog("Empty room selected !", false);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Empty - The room can book");
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Active - The room is used");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Booking - The room is booked");
-        }
-       
-        private void button8_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Over Time - The room check out late");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Late Time - The room check in late");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Maintaining - The room is maintained");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Cleaning - The room is cleaned");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Last Time - The cell of the past");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Current Time - The cell of the current time in dataTimePicker");
-        }
-
-        private void btnSuccess_Click(object sender, EventArgs e)
-        {
-            this.showColorInfo("Success Order - The cell of the success order");
         }
 
         private void cbbRoomType_SelectedIndexChanged(object sender, EventArgs e)
@@ -729,6 +685,52 @@ namespace GUI.ChildForms
         private void btnDeleteService_Click(object sender, EventArgs e)
         {
             dtpSystemTime.Value = DateTime.Now;
+        }
+
+        private void btnInfoUser_Click(object sender, EventArgs e)
+        {
+            if(this.currentOrderChoose.Count > 0)
+            {
+                if (this.currentOrderChoose[0].users != null)
+                {
+                    string listUser = "";
+
+                    int i = 1;
+
+                    foreach (User user in this.currentOrderChoose[0].users)
+                    {
+                        listUser += i++ + ".\n";
+                        listUser += "Room number: " + user.room.room_number + "\n";
+                        listUser += "Full name: " + user.sFullName + "\n";
+                        listUser += "Id code: " + user.sIdCode + "\n";
+                        listUser += "Phone number: " + user.sPhoneNumber + "\n";
+                        listUser += "Email: " + user.sEmail + "\n";
+                        listUser += "Address: " + user.sEmail + "\n";
+                        listUser += "--------------------\n";
+                    }
+
+                    MessageBox.Show(listUser, "User info");
+                }
+            }
+            else
+            {
+                this.showLog("No order select !", false);
+            }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            if (this.currentOrderChoose.Count > 0)
+            {
+                if (this.currentOrderChoose[0].status == 2 || this.currentOrderChoose[0].status == 3)
+                {
+                    handleOpenChildForm?.Invoke(this, new OpenChildForm("add user", this.currentOrderChoose[0].id));
+                }
+            }
+            else
+            {
+                this.showLog("Select order to add user !", false);
+            }
         }
     }
 }

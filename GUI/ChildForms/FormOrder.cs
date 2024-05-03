@@ -101,12 +101,17 @@ namespace GUI.ChildForms
             {
                 this.totalRoom.ToString(),
                 room.room_number.ToString(),
-                room.room_type_name
+                room.room_type_name,
+                "Detail"
             };
 
             ListViewItem lstItem = new ListViewItem(item);
 
+            lstItem.SubItems[3].Tag = room.id;
+
             lstRoom.Items.Add(lstItem);
+
+            //lstRoom.Items[lstRoom.Items.Count - 1].SubItems[3].Tag = room.id;
 
             this.totalRoom++;
         }
@@ -149,28 +154,19 @@ namespace GUI.ChildForms
 
                 this.orderList[itemIndex].rooms = this.orderBLL.getOrderRoom(orderId);
 
-                foreach(Room room in this.orderList[itemIndex].rooms){
-                    this.addRoomToListView(room);
-                }
-
                 this.orderList[itemIndex].services = this.orderBLL.getOrderService(orderId);
 
-                foreach(Service service in this.orderList[itemIndex].services)
-                {
-                    this.addServiceToListView(service);
-                }
+                this.orderList[itemIndex].users = this.orderBLL.getOrderUser(orderId);
             }
-            else
-            {
-                foreach (Room room in this.orderList[itemIndex].rooms)
-                {
-                    this.addRoomToListView(room);
-                }
 
-                foreach (Service service in this.orderList[itemIndex].services)
-                {
-                    this.addServiceToListView(service);
-                }
+            foreach (Room room in this.orderList[itemIndex].rooms)
+            {
+                this.addRoomToListView(room);
+            }
+
+            foreach (Service service in this.orderList[itemIndex].services)
+            {
+                this.addServiceToListView(service);
             }
 
             txtOrderPrice.Text = item.SubItems[6].Text;
@@ -233,6 +229,69 @@ namespace GUI.ChildForms
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnInfoUser_Click(object sender, EventArgs e)
+        {
+            if(lstOrder.SelectedItems.Count > 0)
+            {
+                ListViewItem item = lstOrder.FocusedItem;
+
+                int itemIndex = Convert.ToInt32(item.SubItems[7].Text);
+
+                string listUser = "";
+
+                int i = 1;
+
+                foreach (User user in this.orderList[itemIndex].users)
+                {
+                    listUser += i++ + ".\n";
+                    listUser += "Full name: " + user.sFullName + "\n";
+                    listUser += "Id code: " + user.sIdCode + "\n";
+                    listUser += "Phone number: " + user.sPhoneNumber + "\n";
+                    listUser += "Email: " + user.sEmail + "\n";
+                    listUser += "Address: " + user.sEmail + "\n";
+                    listUser += "--------------------\n";
+                }
+
+                MessageBox.Show(listUser, "User info");
+            }
+        }
+
+        private void dtpOrderCheckOut_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstRoom_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo itemClick = lstRoom.HitTest(e.X, e.Y);
+
+            ListViewItem order = lstOrder.FocusedItem;
+
+            List<User> users = this.orderBLL.getOrderRoomUser(Convert.ToInt32(order.Text), Convert.ToInt32(itemClick.SubItem.Tag));
+
+            string listUser = "";
+
+            int i = 1;
+
+            foreach (User user in users)
+            {
+                listUser += i++ + ".\n";
+                listUser += "Full name: " + user.sFullName + "\n";
+                listUser += "Id code: " + user.sIdCode + "\n";
+                listUser += "Phone number: " + user.sPhoneNumber + "\n";
+                listUser += "Email: " + user.sEmail + "\n";
+                listUser += "Address: " + user.sEmail + "\n";
+                listUser += "--------------------\n";
+            }
+
+            MessageBox.Show(listUser, "User info");
         }
     }
 }

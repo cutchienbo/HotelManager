@@ -31,6 +31,8 @@ namespace DTO
 
         public List<Service> services { get; set; }
 
+        public List<User> users { get; set; }
+
         public int startIndex { get; set; }
 
         public int endIndex { get; set; }
@@ -58,6 +60,7 @@ namespace DTO
             {
                 dic.Add("customer_name", this.customer_name);
                 dic.Add("staff_name", this.user_name);
+                dic.Add("status", this.status);
             }
             else
             {
@@ -68,7 +71,6 @@ namespace DTO
             dic.Add("price", this.price);
             dic.Add("check_in_date", this.check_in_date);
             dic.Add("check_out_date", this.check_out_date);
-            dic.Add("status", this.status);
 
             return dic;
         }
